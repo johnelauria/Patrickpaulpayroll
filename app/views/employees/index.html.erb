@@ -1,0 +1,46 @@
+<h1>Listing employees</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Designation</th>
+    <% if employer? %>
+    <th>Salary per day</th>
+    <th>Salary per hour</th>
+    <% else %>
+    <% end %>
+    <th>Starting time</th>
+    <th>Dismissal time</th>
+    <th>Regular working hours</th>
+    <th>Classification</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @employees.each do |employee| %>
+  <tr>
+    <td><%= employee.name %></td>
+    <td><%= employee.designation %></td>
+    <% if employer? %>
+    <td><%= sprintf("P%0.02f", employee.salary_per_day) %></td>
+    <td><%= sprintf("P%0.02f", employee.salary_per_hour) %></td>
+    <% end %>
+    <td><%= employee.starting_time.strftime("%H:%M") %></td>
+    <td><%= employee.dismissal_time.strftime("%H:%M") %></td>
+    <td><%= employee.working_hours %></td>
+    <td><%= employee.classification %></td>
+    <% if employer? || administrator? %>
+    <td><%= link_to 'Show', employee %></td>
+    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+    <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if employer? || administrator? %> 
+    <%= link_to 'New Employee', new_employee_path %>
+<% end %>

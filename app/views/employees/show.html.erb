@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <b>Designation:</b>
+  <%= @employee.designation %>
+</p>
+
+<% if employer? || correct_employee %>
+
+<p>
+  <b>Salary per day:</b>
+  <%= sprintf("P%0.02f", @employee.salary_per_day) %>
+</p>
+
+<p>
+  <b>Salary per hour:</b>
+  <%= @employee.salary_per_hour %>
+</p>
+
+<% end %>
+
+<p>
+  <b>Starting time:</b>
+  <%= @employee.starting_time.strftime("%H:%M") %>
+</p>
+
+<p>
+  <b>Dismissal time:</b>
+  <%= @employee.dismissal_time.strftime("%H:%M") %>
+</p>
+
+<p>
+  <b>Regular working hours:</b>
+  <%= @employee.working_hours %>
+</p>
+
+<p>
+  <b>Classification:</b>
+  <%= @employee.classification %>
+</p>
+
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

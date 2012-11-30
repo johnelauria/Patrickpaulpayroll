@@ -1,0 +1,31 @@
+<h1>Listing attendances</h1>
+
+<table>
+  <tr>
+    <th>Employee</th>
+    <th>Time in</th>
+    <th>Time out</th>
+    <th>Date</th>
+    <th>Total hours rendered</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @attendances.each do |attendance| %>
+  <tr>
+    <td><%= attendance.employee_id %></td>
+    <td><%= attendance.time_in %></td>
+    <td><%= attendance.time_out %></td>
+    <td><%= attendance.date %></td>
+    <td><%= attendance.total_hours_rendered %></td>
+    <td><%= link_to 'Show', attendance %></td>
+    <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
+    <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Attendance', new_attendance_path %>

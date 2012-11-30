@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  designation: MyString
+  password: MyString
+  salary_per_day: 9.99
+  salary_per_hour: MyString
+  starting_time: 2012-11-30 11:05:37
+  dismissal_time: 2012-11-30 11:05:37
+  regular_working_hours: MyString
+  classification: MyString
+
+two:
+  name: MyString
+  designation: MyString
+  password: MyString
+  salary_per_day: 9.99
+  salary_per_hour: MyString
+  starting_time: 2012-11-30 11:05:37
+  dismissal_time: 2012-11-30 11:05:37
+  regular_working_hours: MyString
+  classification: MyString
