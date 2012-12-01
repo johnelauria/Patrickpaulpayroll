@@ -19,7 +19,7 @@
 
 <p>
   <b>Salary per hour:</b>
-  <%= @employee.salary_per_hour %>
+  <%= sprintf("P%0.02f", @employee.salary_per_hour) unless @employee.salary_per_hour.nil? %>
 </p>
 
 <% end %>
@@ -44,6 +44,45 @@
   <%= @employee.classification %>
 </p>
 
-
+<% if employer? || administrator? %>
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
+<% end %>
 <%= link_to 'Back', employees_path %>
+
+<br /><br />
+<% if correct_employee %>
+<%= render 'attendances/timeinform' %>
+<% end %>
+<br /><br />
+
+<table class="table">
+   <tr>
+     <th>Date</th>
+     <th>Time in</th>
+     <th>Time out</th>
+     <th>Total hours rendered</th>
+     <% if employer? || correct_employee %>
+     <th>Total salary earned</th>
+     <% end %>
+     <th></th>
+   </tr>
+<% @employee.attendances.each do |attendance| %>
+    <tr>
+      <td><%= attendance.date %></td>
+      <td><%= attendance.time_in.strftime('%H:%M:%S') %></td>
+      <% if !attendance.time_out.nil? %>
+      <td><%= attendance.time_out.strftime('%H:%M:%S') %></td>
+      <% else %>
+      <td></td>
+      <% end %>
+      <% if !attendance.total_hours_rendered.nil? %>
+      <td><%= pluralize(sprintf("%0.02f", attendance.total_hours_rendered), "hour") %></td>
+      <% end %>
+      <% if employer? || correct_employee %>
+      <td><%= sprintf("P%0.02f", attendance.total_salary_earned) unless attendance.total_salary_earned.nil? %></td>
+      <% end %>
+      <td><%= link_to "Time out", edit_attendance_path(attendance), class: "btn btn-mini btn-inverse" %></td>
+    </tr>
+
+<% end %>
+</table>

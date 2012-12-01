@@ -15,10 +15,11 @@
 				</ul>
 				<ul class="nav nav-pills pull-right">
 					<li><%= link_to "Home", root_path %></li>
-					<li><a href="#">Attendance</a></li>
+					<li><%= link_to "Employees", employees_path %></li>
 					<% if signed_in? %>
+					<li><%= link_to "Attendance", attendances_path %></li>
+						<li><%= link_to "Employees", employees_path %></li>
 						<li><%= link_to "Logout", signout_path %></li>
-						<li><%= link_to "Account Management", employees_path %></li>
 					<% else %>
 						<li><%= link_to "Signin", signin_path %></li>
 					<% end %>
@@ -27,7 +28,7 @@
 		</div>
 	</div>
 	<br /><br /><br />
-
+	<div class="container">
 	<% flash.each do |key, value| %>
 		<div>
 			<button type="button" class="close" data-dismiss="alert">x</button>
@@ -40,6 +41,6 @@
 	<% end %>
 
 	<%= yield %>
-
+</div>
 </body>
 </html>

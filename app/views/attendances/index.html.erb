@@ -1,12 +1,15 @@
-<h1>Listing attendances</h1>
+<h1>Attendance Sheet</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Employee</th>
     <th>Time in</th>
     <th>Time out</th>
     <th>Date</th>
     <th>Total hours rendered</th>
+    <% if employer? %>
+    <th>Total salary earned</th>
+    <% end %>
     <th></th>
     <th></th>
     <th></th>
@@ -14,11 +17,22 @@
 
 <% @attendances.each do |attendance| %>
   <tr>
-    <td><%= attendance.employee_id %></td>
-    <td><%= attendance.time_in %></td>
-    <td><%= attendance.time_out %></td>
+    <td><%= attendance.employee.name %></td>
+    <td><%= attendance.time_in.strftime('%H:%M:%S') %></td>
+    <% if !attendance.time_out.nil? %>
+    <td><%= attendance.time_out.strftime('%H:%M:%S') %></td>
+    <% else %>
+    <td></td>
+    <% end %>
     <td><%= attendance.date %></td>
-    <td><%= attendance.total_hours_rendered %></td>
+    <% if !attendance.total_hours_rendered.nil? %>
+    <td><%= sprintf("%0.02f", attendance.total_hours_rendered) %></td>
+    <% else %>
+    <td></td>
+    <% end %>
+    <% if employer? || correct_employee %>
+    <td><%= attendance.total_salary_earned %></td>
+    <% end %>
     <td><%= link_to 'Show', attendance %></td>
     <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
     <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -14,6 +14,8 @@ class EmployeesController < ApplicationController
   # GET /employees/1.json
   def show
     @employee = Employee.find(params[:id])
+    @attendance = Employee.new.attendances.build(params[:attendance])
+
 
     respond_to do |format|
       format.html # show.html.erb

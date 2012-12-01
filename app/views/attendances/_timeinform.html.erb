@@ -1,0 +1,28 @@
+<%= form_for(@attendance) do |f| %>
+  <% if @attendance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
+
+      <ul>
+      <% @attendance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<strong>Time in Parameters: </strong>
+  <div class="field">
+    <%= f.hidden_field :employee_id, value: current_employee.id %>
+  </div>
+  <div class="field">
+    <%= f.label :time_in %>: <%= Time.now.strftime('%H:%M:%S') %><br />
+    <%= f.hidden_field :time_in, value: Time.now %>
+  </div>
+  <div class="field">
+    <%= f.label :date %>: <%= Date.today %><br />
+    <%= f.hidden_field :date, value: Date.today %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Time in", class: "btn btn-inverse" %>
+  </div>
+<% end %>

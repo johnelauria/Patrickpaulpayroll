@@ -2,17 +2,17 @@
 
 <p>
   <b>Employee:</b>
-  <%= @attendance.employee_id %>
+  <%= current_employee.name %>
 </p>
 
 <p>
   <b>Time in:</b>
-  <%= @attendance.time_in %>
+  <%= @attendance.time_in.strftime('%H:%M:%S') %>
 </p>
 
 <p>
   <b>Time out:</b>
-  <%= @attendance.time_out %>
+  <%= @attendance.time_out.strftime('%H:%M:%S') %>
 </p>
 
 <p>
@@ -26,5 +26,4 @@
 </p>
 
 
-<%= link_to 'Edit', edit_attendance_path(@attendance) %> |
-<%= link_to 'Back', attendances_path %>
+<%= link_to 'Back', current_employee %>

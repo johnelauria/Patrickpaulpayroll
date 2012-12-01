@@ -10,8 +10,8 @@ class Employee < ActiveRecord::Base
   before_save :create_remember_token
 
   def save_salary_per_hour
-  	self.working_hours = ((self.dismissal_time - self.starting_time) / 1.hour).round
-  	self.salary_per_hour = (self.salary_per_day / self.working_hours)
+    self.working_hours = ((self.dismissal_time - self.starting_time) / 1.hour)
+    self.salary_per_hour = (self.salary_per_day / self.working_hours)
   end
 
   private
