@@ -1,0 +1,21 @@
+<%= form_for(@cutoff) do |f| %>
+  <% if @cutoff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cutoff.errors.count, "error") %> prohibited this cutoff from being saved:</h2>
+
+      <ul>
+      <% @cutoff.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cutoff_date %><br />
+    <%= f.date_select :cutoff_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

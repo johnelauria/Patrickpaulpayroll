@@ -1,7 +1,8 @@
 class Attendance < ActiveRecord::Base
-  attr_accessible :date, :employee_id, :time_in, :time_out, :total_hours_rendered, :total_salary_earned
+  attr_accessible :cutoff_id, :date, :employee_id, :time_in, :time_out, :total_hours_rendered, :total_salary_earned
 
-  belongs_to :employee
+  belongs_to :cutoff, dependent: :destroy
+  belongs_to :employee, dependent: :destroy
   before_update :total_hours
 
   

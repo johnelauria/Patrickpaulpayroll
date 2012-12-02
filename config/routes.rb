@@ -1,4 +1,7 @@
 Payroll::Application.routes.draw do
+  resources :cutoffs
+
+
   get "home/main"
 
   get "sessions/new"

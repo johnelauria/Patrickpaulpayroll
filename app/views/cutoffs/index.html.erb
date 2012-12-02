@@ -1,0 +1,23 @@
+<h1>Listing cutoffs</h1>
+
+<table class="table">
+  <tr>
+    <th>Cutoff date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cutoffs.each do |cutoff| %>
+  <tr>
+    <td><%= cutoff.cutoff_date %></td>
+    <td><%= link_to 'Show', cutoff %></td>
+    <td><%= link_to 'Edit', edit_cutoff_path(cutoff) %></td>
+    <td><%= link_to 'Destroy', cutoff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cutoff', new_cutoff_path %>
