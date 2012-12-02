@@ -1,7 +1,7 @@
 class Employee < ActiveRecord::Base
   attr_accessible :classification, :designation, :dismissal_time, :name, :password, :password_confirmation, :regular_working_hours, :salary_per_day, :salary_per_hour, :starting_time, :remember_token, :username
 
-  validates :name, :password, :password_confirmation, :salary_per_day, :starting_time, :username, presence: true
+  validates :name, :password, :password_confirmation, :salary_per_day, :starting_time, :username, :classification, presence: true
 
   has_many :attendances
   has_secure_password

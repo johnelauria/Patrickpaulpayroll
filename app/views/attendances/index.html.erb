@@ -2,10 +2,10 @@
 
 <table class="table">
   <tr>
+    <th>Date</th>
     <th>Employee</th>
     <th>Time in</th>
     <th>Time out</th>
-    <th>Date</th>
     <th>Total hours rendered</th>
     <% if employer? %>
     <th>Total salary earned</th>
@@ -17,21 +17,25 @@
 
 <% @attendances.each do |attendance| %>
   <tr>
+    <td><%= attendance.date %></td>
     <td><%= attendance.employee.name %></td>
+    <% if attendance.time_in > attendance.employee.starting_time %>
+    <td style="color: red;"><%= attendance.time_in.strftime('%H:%M:%S') %></td>
+    <% else %>
     <td><%= attendance.time_in.strftime('%H:%M:%S') %></td>
+    <% end %>
     <% if !attendance.time_out.nil? %>
     <td><%= attendance.time_out.strftime('%H:%M:%S') %></td>
     <% else %>
     <td></td>
     <% end %>
-    <td><%= attendance.date %></td>
     <% if !attendance.total_hours_rendered.nil? %>
     <td><%= sprintf("%0.02f", attendance.total_hours_rendered) %></td>
     <% else %>
     <td></td>
     <% end %>
     <% if employer? || correct_employee %>
-    <td><%= attendance.total_salary_earned %></td>
+    <td><%= sprintf("P%0.02f", attendance.total_salary_earned) unless attendance.total_salary_earned.nil? %></td>
     <% end %>
     <td><%= link_to 'Show', attendance %></td>
     <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>

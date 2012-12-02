@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<div class="row">
+  <div class="span6">
 <p>
   <b>Name:</b>
   <%= @employee.name %>
@@ -9,7 +10,7 @@
   <b>Designation:</b>
   <%= @employee.designation %>
 </p>
-
+<% if signed_in? %>
 <% if employer? || correct_employee %>
 
 <p>
@@ -22,6 +23,7 @@
   <%= sprintf("P%0.02f", @employee.salary_per_hour) unless @employee.salary_per_hour.nil? %>
 </p>
 
+<% end %>
 <% end %>
 
 <p>
@@ -43,17 +45,36 @@
   <b>Classification:</b>
   <%= @employee.classification %>
 </p>
-
+<% if signed_in? %>
 <% if employer? || administrator? %>
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <% end %>
-<%= link_to 'Back', employees_path %>
-
-<br /><br />
-<% if correct_employee %>
-<%= render 'attendances/timeinform' %>
 <% end %>
-<br /><br />
+<%= link_to 'Back', employees_path %>
+</div>
+
+<div class="span3 offset1 hero-unit" align="center">
+  <% if correct_employee %>
+<% if current_employee.attendances.last.nil? %>
+<%= render 'attendances/timeinform' %>
+<% else %>
+<% if current_employee.attendances.last.date != Date.today %>
+<%= render 'attendances/timeinform' %>
+<% else %>
+<% if current_employee.attendances.last.time_out.nil? %>
+<% if current_employee.starting_time < current_employee.attendances.last.time_in %>
+<font color="red">You have successfully timed in. You are <%= sprintf("%0.02f", ((current_employee.attendances.last.time_in - current_employee.starting_time) / 1.hour)) %> hours late for today!</font>
+<% else %>
+<font color="green">You are currently timed in!</font>
+<% end %>
+<% else %>
+<font color="green">You have successfully timed out! Come back again another day for your next shift...</font>
+<% end %>
+<% end %>
+<% end %>
+<% end %>
+</div>
+</div>
 
 <table class="table">
    <tr>
@@ -61,8 +82,10 @@
      <th>Time in</th>
      <th>Time out</th>
      <th>Total hours rendered</th>
+     <% if signed_in? %>
      <% if employer? || correct_employee %>
      <th>Total salary earned</th>
+     <% end %>
      <% end %>
      <th></th>
    </tr>
@@ -80,8 +103,9 @@
       <% end %>
       <% if employer? || correct_employee %>
       <td><%= sprintf("P%0.02f", attendance.total_salary_earned) unless attendance.total_salary_earned.nil? %></td>
+      <% else %>
       <% end %>
-      <td><%= link_to "Time out", edit_attendance_path(attendance), class: "btn btn-mini btn-inverse" %></td>
+      <td><%= link_to "Time out", edit_attendance_path(attendance), class: "btn btn-mini btn-inverse" unless !attendance.time_out.nil? %></td>
     </tr>
 
 <% end %>

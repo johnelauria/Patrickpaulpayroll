@@ -2,8 +2,7 @@ class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
   def index
-    @attendances = Attendance.all
-
+    @attendances = Attendance.all.reverse
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @attendances }
@@ -44,7 +43,8 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_to current_employee, notice: 'Attendance was successfully created.' }
+        flash[:success] = "You have successfully timed in"
+        format.html { redirect_to current_employee }
         format.json { render json: @attendance, status: :created, location: @attendance }
       else
         format.html { render action: "new" }

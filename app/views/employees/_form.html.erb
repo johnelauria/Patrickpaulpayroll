@@ -1,3 +1,7 @@
+<div class="alert alert-info">
+  <button class="close" data-dismiss="alert">x</button>
+  Forms with (*) are required parameters
+</div>
 <%= form_for(@employee) do |f| %>
   <% if @employee.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +17,7 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name %>*
   </div>
   <div class="field">
     <%= f.label :designation %><br />
@@ -24,15 +28,15 @@
     <%=f.text_field :username %> <small>*Will be used for logging in*</small>
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.password_field :password %>*
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %>*
   </div>
   <div class="field">
     <%= f.label :salary_per_day %><br />
-    <%= f.text_field :salary_per_day %>
+    <%= f.text_field :salary_per_day %>*
   </div>
   <div class="field">
     <%= f.label :starting_time %><br />
@@ -43,7 +47,7 @@
     <%= f.time_select :dismissal_time %>
   </div>
   <div class="field">
-    <%= f.label :classification %><br />
+    <%= f.label :classification %>*<br />
     <ul>
       <li><%= f.radio_button :classification, "Employer" %>Employer</li>
     <li><%= f.radio_button :classification, "Administrator" %>Administrator</li>
@@ -51,6 +55,6 @@
     </ul>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-inverse" %>
   </div>
 <% end %>
