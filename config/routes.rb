@@ -18,7 +18,9 @@ Payroll::Application.routes.draw do
 
   match "/signout", to: "sessions#destroy"
 
-  resources :employees
+  resources :employees do
+    put :authorizeovertime, on: :member
+  end
 
 
   # The priority is based upon order of creation:

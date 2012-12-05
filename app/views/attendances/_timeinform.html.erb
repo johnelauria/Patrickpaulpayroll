@@ -19,8 +19,14 @@
     <%= f.hidden_field :employee_id, value: current_employee.id %>
   </div>
   <div class="field">
+    <% if current_employee.starting_time.strftime('%H:%M') <= Time.now.strftime('%H:%M') %>
+    <font color="red">You are late for today. Please Time in now and get to work</font>
     <%= f.label :time_in %>: <%= Time.now.strftime('%H:%M:%S') %><br />
     <%= f.hidden_field :time_in, value: Time.now %>
+    <% else %>
+    <%= f.label :time_in %>: <%= current_employee.starting_time.strftime('%H:%M:%S') %><br />
+    <%= f.hidden_field :time_in, value: current_employee.starting_time %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :date %>: <%= Date.today %><br />

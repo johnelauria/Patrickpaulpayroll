@@ -3,7 +3,7 @@ class Employee < ActiveRecord::Base
 
   validates :name, :password, :password_confirmation, :salary_per_day, :starting_time, :username, :classification, presence: true
 
-  has_many :attendances
+  has_many :attendances, dependent: :destroy
   has_secure_password
 
   before_save :save_salary_per_hour

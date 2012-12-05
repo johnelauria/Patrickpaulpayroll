@@ -1,5 +1,22 @@
 <h1>Time out</h1>
-
+<% if @attendance.employee_id == current_employee.id %>
 <%= render 'timeoutform' %>
+<% end %>
+<% if employer? || administrator? %>
+<div class="accordion" id="updatetimeout">
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#updatetimeout" href="#updatefield">
+				Update Time out information
+			</a>
+		</div>
+		<div id="updatefield" class="accordion-body collapse">
+			<div class="accordion-inner">
+				<%= render 'form' %>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>
 
 <%= link_to 'Back', :back %>

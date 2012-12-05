@@ -19,10 +19,14 @@
   <tr>
     <td><%= attendance.date %></td>
     <td><%= attendance.employee.name %></td>
+    <% if attendance.time_in.nil? %>
+    <td></td>
+    <% else %>
     <% if attendance.time_in > attendance.employee.starting_time %>
     <td style="color: red;"><%= attendance.time_in.strftime('%H:%M:%S') %></td>
     <% else %>
     <td><%= attendance.time_in.strftime('%H:%M:%S') %></td>
+    <% end %>
     <% end %>
     <% if !attendance.time_out.nil? %>
     <td><%= attendance.time_out.strftime('%H:%M:%S') %></td>

@@ -12,26 +12,53 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :employee_id %><br />
-    <%= f.text_field :employee_id %>
+    <%= f.label "Edit Time out info for #{@attendance.employee.name}" %>
   </div>
   <div class="field">
-    <%= f.label :time_in %><br />
-    <%= f.time_select :time_in %>
+    <%= f.label "Enter cutoff_id to include this attendance to the correct cutoff" %>
+    <%= f.number_field :cutoff_id, value: Cutoff.first.id %>
+    <a href="#cutoffids" data-toggle="modal">Click here to view cutoff ids and dates</a>
   </div>
   <div class="field">
-    <%= f.label :time_out %><br />
-    <%= f.time_select :time_out %>
+    <%= f.hidden_field :employee_id, value: @attendance.employee_id %>
   </div>
   <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
+    <%= f.label :time_in %>
+    <%= f.time_select :time_in, value: @attendance.employee.starting_time %>
   </div>
   <div class="field">
-    <%= f.label :total_hours_rendered %><br />
-    <%= f.time_select :total_hours_rendered %>
+    <%= f.label :date %>: <%= Date.today %><br />
+    <%= f.date_select :date, value: Date.today %>
+  </div>
+  <div class="field">
+    <%= f.label :time_out %>
+    <%= f.time_select :time_out, value: @attendance.employee.dismissal_time %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update", class: "btn btn-inverse" %>
   </div>
 <% end %>
+
+<div id="cutoffids" class="modal hide fade">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">x</button>
+    <h1>Cutoff ids and dates</h1>
+  </div>
+  <div class="modal-body">
+    <table class="table">
+      <tr>
+        <th>Cutoff id</th>
+        <th>Date</th>
+      </tr>
+      <% Cutoff.all.each do |cutoff| %>
+        <tr>
+          <td><%= cutoff.id %></td>
+          <td><%= cutoff.cutoff_date %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="modal-body">
+    <button class="btn" data-dismiss="modal" style="float:right;">Close</button>
+  </div>
+</div>

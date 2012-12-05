@@ -21,10 +21,7 @@
 					<li><%= link_to "Cutoff", cutoffs_path %></li>
 					<% end %>
 					<li><%= link_to "Attendance", attendances_path %></li>
-						<li><%= link_to "Employees", employees_path %></li>
 						<li><%= link_to "Logout", signout_path %></li>
-					<% else %>
-						<li><%= link_to "Signin", signin_path %></li>
 					<% end %>
 				</ul>
 			</div>
@@ -40,7 +37,7 @@
 	<% end %>
 
 	<% if signed_in? %>
-		<small>Logged in as: <%= link_to current_employee.name, current_employee %> | <%= current_employee.classification %></small>
+		<small>Logged in as: <%= link_to current_employee.name, current_employee %> | <%= current_employee.classification %> | <%= Time.now.strftime('%H:%M:%S') %></small>
 	<% end %>
 
 	<%= yield %>

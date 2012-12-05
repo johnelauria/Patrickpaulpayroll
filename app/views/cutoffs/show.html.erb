@@ -7,7 +7,15 @@
 
 <%= link_to 'Edit', edit_cutoff_path(@cutoff) %> |
 <%= link_to 'Back', cutoffs_path %>
+<br /><br />
 
+<ul class="nav nav-tabs" id="Tabs">
+	<li class="active"><a href="#attendance" data-toggle="tab">Attendance</a></li>
+	<li><a href="#salaries" data-toggle="tab">Total salary of employees</a></li>
+</ul>
+
+<div class="tab-content">
+	<div class="tab-pane active" id="attendance">
 <table class="table">
   <tr>
     <th>Date</th>
@@ -22,14 +30,18 @@
     <th></th>
     <th></th>
   </tr>
-<% @cutoff.attendances.each do |attendance| %>
+<% @cutoff.attendances.reverse.each do |attendance| %>
 	  <tr>
 	    <td><%= attendance.date %></td>
 	    <td><%= attendance.employee.name %></td>
+	    <% if attendance.time_in.nil? %>
+	    <td></td>
+	    <% else %>
 	    <% if attendance.time_in > attendance.employee.starting_time %>
 	    <td style="color: red;"><%= attendance.time_in.strftime('%H:%M:%S') %></td>
 	    <% else %>
 	    <td><%= attendance.time_in.strftime('%H:%M:%S') %></td>
+	    <% end %>
 	    <% end %>
 	    <% if !attendance.time_out.nil? %>
 	    <td><%= attendance.time_out.strftime('%H:%M:%S') %></td>
@@ -50,3 +62,19 @@
 	  </tr>
 <% end %>
 </table>
+</div>
+<div class="tab-pane" id="salaries">
+	<table class="table">
+    <tr>
+        <th>Employee name</th>
+        <th>Total salary</th>
+    </tr>
+    <% Employee.all.each do |employee| %>
+        <tr>
+            <td><%= employee.name %></td>
+            <td><%= sprintf("P%0.02f", employee.attendances.map(&:total_salary_earned).sum) %></td>
+        </tr>
+    <% end %>
+</table>
+</div>
+</div>

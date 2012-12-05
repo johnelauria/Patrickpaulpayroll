@@ -1,5 +1,28 @@
-<div class="hero-unit" align="center">
-	<h1>Payroll System</h1>
-	<br />
-	Bayaran nyo ako ng P1700! P700 kay patrick tska painum kayo
+<div class="row">
+	<div class="span8">
+		<div class="hero-unit" align="center">
+			<h1>Payroll System</h1>
+			<br />
+			Bayaran nyo ako ng P1700! P700 kay patrick tska painum kayo
+			<br /><br />
+			<div class="row">
+			<div class="span4">
+				<a href="#">Help</a>
+			</div>
+			<div class="4">
+				<a href="#">About</a>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="span4" align="center">
+		<div style="background-color:#eaeaea;">
+			<% if signed_in? %>
+				<%= link_to "sign out", signout_path %>
+			<% else %>
+				<%= render 'sessions/signin' %>
+			<% end %>
+		<br />
+	</div>
+	</div>
 </div>

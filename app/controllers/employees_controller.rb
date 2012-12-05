@@ -1,8 +1,15 @@
 class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
+
+  def authorizeovertime
+    @user = Employee.find(params[:id])
+    @user.toggle!(:authorized_overtime)
+    redirect_to employees_path
+  end
+
   def index
-    @employees = Employee.all
+    @employees = Employee.all.sort { |a, b| a.name.downcase <=> b.name.downcase }
 
     respond_to do |format|
       format.html # index.html.erb

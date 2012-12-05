@@ -12,7 +12,7 @@
 
 <p>
   <b>Time out:</b>
-  <%= @attendance.time_out.strftime('%H:%M:%S') %>
+  <%= @attendance.time_out.strftime('%H:%M:%S') unless @attendance.time_out.nil? %>
 </p>
 
 <p>

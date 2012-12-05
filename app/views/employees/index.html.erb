@@ -13,6 +13,7 @@
     <th>Dismissal time</th>
     <th>Regular working hours</th>
     <th>Classification</th>
+    <th>Overtime Authorization</th>
     <th></th>
     <th></th>
     <th></th>
@@ -34,8 +35,10 @@
     <td><%= employee.dismissal_time.strftime("%H:%M") %></td>
     <td><%= employee.working_hours %></td>
     <td><%= employee.classification %></td>
+    <td><%= employee.authorized_overtime %></td>
     <% if signed_in? %>
     <% if employer? || administrator? %>
+    <td><%= link_to "Authorize OT", authorizeovertime_employee_url(employee), method: :put, data: { confirm: "Authorize this employee to work overtime / undertime? Continuing this action will allow this employee to time out anytime regardless the employee's original dismissal time." }, class: "btn btn-mini btn-inverse" %></td>
     <td><%= link_to 'Show', employee %></td>
     <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
     <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
