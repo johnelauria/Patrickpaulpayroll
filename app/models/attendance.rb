@@ -5,7 +5,6 @@ class Attendance < ActiveRecord::Base
   belongs_to :employee
   before_update :total_hours
 
-  
 	def total_hours
 		self.total_hours_rendered = ((self.time_out - self.time_in) / 1.hour)
 		self.total_salary_earned = (self.total_hours_rendered * self.employee.salary_per_hour)

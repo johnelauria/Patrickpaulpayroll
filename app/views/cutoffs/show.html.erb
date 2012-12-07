@@ -69,12 +69,13 @@
         <th>Employee name</th>
         <th>Total salary</th>
     </tr>
-    <% Employee.all.each do |employee| %>
+    <% @cutoff.attendances.each do |attendance| %>
         <tr>
-            <td><%= employee.name %></td>
-            <td><%= sprintf("P%0.02f", employee.attendances.map(&:total_salary_earned).sum) %></td>
+            <td><%= attendance.employee.name %></td>
+            <td><%= sprintf("P%0.02f", attendance.employee.cutoff_salary) %></td>
         </tr>
     <% end %>
 </table>
 </div>
 </div>
+

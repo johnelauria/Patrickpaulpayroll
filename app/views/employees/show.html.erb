@@ -45,6 +45,11 @@
   <b>Classification:</b>
   <%= @employee.classification %>
 </p>
+
+<p>
+  <b>Salary for current cutoff: </b>
+  <%= sprintf("P%0.02f", @employee.cutoff_salary) %>
+</p>
 <% if signed_in? %>
 <% if employer? || administrator? %>
 <%= link_to 'Edit', edit_employee_path(@employee) %> |

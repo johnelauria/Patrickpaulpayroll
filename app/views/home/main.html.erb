@@ -18,7 +18,13 @@
 	<div class="span4" align="center">
 		<div style="background-color:#eaeaea;">
 			<% if signed_in? %>
-				<%= link_to "sign out", signout_path %>
+			<br /><br />
+				<p><strong>Name: </strong><%= current_employee.name %></p>
+				<p><strong>Account type: </strong><%= current_employee.classification %></p>
+				<p><strong>Starting time: </strong><%= current_employee.starting_time.strftime('%H:%M') %></p>
+				<p><strong>Dismissal time: </strong><%= current_employee.dismissal_time.strftime('%H:%M') %></p>
+				<%= link_to "Logout", signout_path, class: "btn btn-inverse" %>
+				<br /><br />
 			<% else %>
 				<%= render 'sessions/signin' %>
 			<% end %>

@@ -13,8 +13,12 @@
 
   <div class="field">
     <% if current_employee.authorized_overtime? %>
+    <div class="alert alert-info">
+    <button class="close" data-dismiss="alert">x</button>
+    You are given authorization to work overtime / undertime. You may time out now if you wish.
+  </div>
     <p>You will be timed out by <%= Time.now.strftime('%H:%M:%S') %>. Click "Time out" button to continue</p>
-    <%= f.hidden_field :time_out, value: Time.now %>
+    <%= f.hidden_field :time_out, value: Time.now %> 
     <% else %>
     <% if Time.now.strftime('%H:%M') >= current_employee.dismissal_time.strftime('%H:%M') %>
     <p>You will be timed out by <%= current_employee.dismissal_time.strftime('%H:%M:%S') %>. Click "Time out" button to continue</p>
@@ -25,12 +29,7 @@
     <% end %>
   </div>
   <% if Time.now.strftime('%H:%M') >= current_employee.dismissal_time.strftime('%H:%M') || current_employee.authorized_overtime? %>
-  <% if current_employee.authorized_overtime? %>
-  <div class="alert alert-info">
-    <button class="close" data-dismiss="alert">x</button>
-    You are given authorization to work overtime / undertime. You may time out now if you wish.
-  </div>
-  <% end %>
+
   <div class="actions">
     <%= f.submit "Timeout", class: "btn btn-inverse" %>
   </div>

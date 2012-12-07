@@ -12,8 +12,8 @@
   <% end %>
 <strong>Time in Parameters: </strong>
   <div class="field">
-    This will be included in the cutoff from <%= Cutoff.first.cutoff_date %>
-    <%= f.hidden_field :cutoff_id, value: Cutoff.first.id %>
+    This will be included in the cutoff from <%= Cutoff.last.cutoff_date %>
+    <%= f.hidden_field :cutoff_id, value: Cutoff.last.id %>
   </div>
   <div class="field">
     <%= f.hidden_field :employee_id, value: current_employee.id %>

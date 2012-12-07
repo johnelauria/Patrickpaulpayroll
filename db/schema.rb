@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203003510) do
+ActiveRecord::Schema.define(:version => 20121207004343) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "employee_id"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(:version => 20121203003510) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "cutoffsalaries", :force => true do |t|
+    t.string   "name"
+    t.decimal  "cutoff_salary"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "cutoff_id"
+  end
+
   create_table "employees", :force => true do |t|
     t.string   "name"
     t.string   "designation"
@@ -46,6 +54,8 @@ ActiveRecord::Schema.define(:version => 20121203003510) do
     t.string   "username"
     t.decimal  "salary_per_hour"
     t.boolean  "authorized_overtime", :default => false
+    t.decimal  "cutoff_salary",       :default => 0.0,   :null => false
+    t.decimal  "total_salary_earned", :default => 0.0,   :null => false
   end
 
   add_index "employees", ["name"], :name => "index_employees_on_name"
