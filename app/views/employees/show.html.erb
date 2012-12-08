@@ -50,6 +50,12 @@
   <b>Salary for current cutoff: </b>
   <%= sprintf("P%0.02f", @employee.cutoff_salary) %>
 </p>
+
+<p>
+  <b>SSS contribution: </b>
+  <%= sprintf("P%0.02f", @employee.sss) %>
+</p>
+
 <% if signed_in? %>
 <% if employer? || administrator? %>
 <%= link_to 'Edit', edit_employee_path(@employee) %> |

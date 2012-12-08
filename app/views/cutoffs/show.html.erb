@@ -68,11 +68,17 @@
     <tr>
         <th>Employee name</th>
         <th>Total salary</th>
+        <th>SSS Deductible</th>
     </tr>
     <% @cutoff.attendances.each do |attendance| %>
         <tr>
             <td><%= attendance.employee.name %></td>
             <td><%= sprintf("P%0.02f", attendance.employee.cutoff_salary) %></td>
+            <% if (attendance.employee.salary_per_day * 30) >= 14750 %>
+            <td>P1560.00</td>
+            <% else %>
+            <td>P1300.00</td>
+            <% end %>
         </tr>
     <% end %>
 </table>

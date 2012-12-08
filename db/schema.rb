@@ -11,18 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121207004343) do
+ActiveRecord::Schema.define(:version => 20121208074826) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "employee_id"
     t.time     "time_in"
     t.time     "time_out"
     t.date     "date"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-    t.decimal  "total_hours_rendered"
-    t.decimal  "total_salary_earned"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.integer  "cutoff_id"
+    t.decimal  "total_salary_earned",  :default => 0.0, :null => false
+    t.decimal  "total_hours_rendered", :default => 0.0, :null => false
   end
 
   create_table "cutoffs", :force => true do |t|
@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(:version => 20121207004343) do
     t.boolean  "authorized_overtime", :default => false
     t.decimal  "cutoff_salary",       :default => 0.0,   :null => false
     t.decimal  "total_salary_earned", :default => 0.0,   :null => false
+    t.decimal  "sss",                 :default => 0.0,   :null => false
+    t.decimal  "philhealth",          :default => 0.0,   :null => false
+    t.decimal  "pagibig",             :default => 0.0,   :null => false
   end
 
   add_index "employees", ["name"], :name => "index_employees_on_name"
