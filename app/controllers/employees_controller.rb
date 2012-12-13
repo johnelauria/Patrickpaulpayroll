@@ -53,6 +53,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
+        Cutofftotalsalary.create(cutoff_id: Cutoff.last.id, employee_name: @employee.name, sss: @employee.sss, philhealth: @employee.philhealth, pagibig: @employee.pagibig)
         format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
         format.json { render json: @employee, status: :created, location: @employee }
       else

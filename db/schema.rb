@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121208074826) do
+ActiveRecord::Schema.define(:version => 20121213011500) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "employee_id"
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(:version => 20121208074826) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "cutoff_id"
+  end
+
+  create_table "cutofftotalsalaries", :force => true do |t|
+    t.integer  "cutoff_id"
+    t.string   "employee_name"
+    t.decimal  "salary_for_cutoff", :default => 0.0, :null => false
+    t.decimal  "sss",               :default => 0.0, :null => false
+    t.decimal  "philhealth",        :default => 0.0, :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.decimal  "pagibig",           :default => 0.0, :null => false
+    t.decimal  "withholding_tax",   :default => 0.0, :null => false
   end
 
   create_table "employees", :force => true do |t|

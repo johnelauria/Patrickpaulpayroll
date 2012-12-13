@@ -1,4 +1,7 @@
 Payroll::Application.routes.draw do
+  resources :cutofftotalsalaries
+
+
   resources :cutoffs
 
 

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cutoff_id: 1
+  employee_name: MyString
+  salary_for_cutoff: 9.99
+  sss: 9.99
+  philhealth: 9.99
+
+two:
+  cutoff_id: 1
+  employee_name: MyString
+  salary_for_cutoff: 9.99
+  sss: 9.99
+  philhealth: 9.99

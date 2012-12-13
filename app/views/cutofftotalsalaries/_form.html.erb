@@ -1,0 +1,45 @@
+<%= form_for(@cutofftotalsalary) do |f| %>
+  <% if @cutofftotalsalary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cutofftotalsalary.errors.count, "error") %> prohibited this cutofftotalsalary from being saved:</h2>
+
+      <ul>
+      <% @cutofftotalsalary.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cutoff_id %><br />
+    <%= f.number_field :cutoff_id %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_name %><br />
+    <%= f.text_field :employee_name %>
+  </div>
+  <div class="field">
+    <%= f.label :salary_for_cutoff %><br />
+    <%= f.text_field :salary_for_cutoff %>
+  </div>
+  <div class="field">
+    <%= f.label :sss %><br />
+    <%= f.text_field :sss %>
+  </div>
+  <div class="field">
+    <%= f.label :philhealth %><br />
+    <%= f.text_field :philhealth %>
+  </div>
+  <div class="field">
+    <%= f.label :pagibig %><br />
+    <%= f.text_field :pagibig %>
+  </div>
+  <div class="field">
+    <%= f.label :withholding_tax %><br />
+    <%= f.text_field :withholding_tax %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

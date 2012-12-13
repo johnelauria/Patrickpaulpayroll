@@ -60,6 +60,7 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.update_attributes(params[:attendance])
+        Cutofftotalsalary.find_by_employee_name(@attendance.employee.name).update_attributes(salary_for_cutoff: @attendance.employee.cutoff_salary)
         format.html { redirect_to current_employee, notice: 'Attendance was successfully updated.' }
         format.json { head :no_content }
       else

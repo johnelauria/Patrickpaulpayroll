@@ -67,21 +67,22 @@
 	<table class="table">
     <tr>
         <th>Employee name</th>
-        <th>Total salary</th>
+        <th>Gross Salary</th>
         <th>SSS Deductible</th>
+        <th>Philhealth</th>
+        <th>Pagibig</th>
+        <th>Net Income</th>
     </tr>
-    <% @cutoff.attendances.each do |attendance| %>
+    <% @cutoff.cutofftotalsalaries.each do |data| %>
         <tr>
-            <td><%= attendance.employee.name %></td>
-            <td><%= sprintf("P%0.02f", attendance.employee.cutoff_salary) %></td>
-            <% if (attendance.employee.salary_per_day * 30) >= 14750 %>
-            <td>P1560.00</td>
-            <% else %>
-            <td>P1300.00</td>
-            <% end %>
+            <td><%= data.employee_name %></td>
+            <td><%= sprintf("P%0.02f", data.salary_for_cutoff) %></td>
+            <td><%= sprintf("P%0.02f", data.sss) %></td>
+            <td><%= sprintf("P%0.02f", data.philhealth) %></td>
+            <td><%= sprintf("P%0.02f", data.pagibig) %></td>
+            <td><%= sprintf("P%0.02f", data.salary_for_cutoff - (data.sss + data.philhealth + data.pagibig)) %></td>
         </tr>
     <% end %>
 </table>
 </div>
 </div>
-

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cutoff:</b>
+  <%= @cutofftotalsalary.cutoff_id %>
+</p>
+
+<p>
+  <b>Employee name:</b>
+  <%= @cutofftotalsalary.employee_name %>
+</p>
+
+<p>
+  <b>Salary for cutoff:</b>
+  <%= @cutofftotalsalary.salary_for_cutoff %>
+</p>
+
+<p>
+  <b>Sss:</b>
+  <%= @cutofftotalsalary.sss %>
+</p>
+
+<p>
+  <b>Philhealth:</b>
+  <%= @cutofftotalsalary.philhealth %>
+</p>
+
+
+<%= link_to 'Edit', edit_cutofftotalsalary_path(@cutofftotalsalary) %> |
+<%= link_to 'Back', cutofftotalsalaries_path %>

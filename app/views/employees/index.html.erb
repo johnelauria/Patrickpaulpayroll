@@ -15,6 +15,8 @@
     <th>Classification</th>
     <th>Overtime Authorization</th>
     <th>SSS contribution</th>
+    <th>Philhealth</th>
+    <th>Pagibig</th>
     <th></th>
     <th></th>
     <th></th>
@@ -38,6 +40,8 @@
     <td><%= employee.classification %></td>
     <td><%= employee.authorized_overtime %></td>
     <td><%= employee.sss %></td>
+    <td><%= employee.philhealth %></td>
+    <td><%= employee.pagibig %></td>
     <% if signed_in? %>
     <% if employer? || administrator? %>
     <td><%= link_to "Authorize OT", authorizeovertime_employee_url(employee), method: :put, data: { confirm: "Authorize this employee to work overtime / undertime? Continuing this action will allow this employee to time out anytime regardless the employee's original dismissal time." }, class: "btn btn-mini btn-inverse" %></td>

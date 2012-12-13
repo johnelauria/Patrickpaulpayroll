@@ -56,6 +56,21 @@
   <%= sprintf("P%0.02f", @employee.sss) %>
 </p>
 
+<p>
+  <b>Philhealth: </b>
+    <%= sprintf("P%0.02f", @employee.philhealth) %>
+</p>
+
+<p>
+  <b>Pagibig: </b>
+  <%= sprintf("P%0.02f", @employee.pagibig) %>
+</p>
+
+<p>
+  <b>Cutoff salary: </b>
+  <%= @employee.cutoff_salary %>
+  </p> 
+
 <% if signed_in? %>
 <% if employer? || administrator? %>
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
@@ -100,7 +115,7 @@
      <% end %>
      <th></th>
    </tr>
-<% @employee.attendances.each do |attendance| %>
+<% @employee.attendances.reverse.each do |attendance| %>
     <tr>
       <td><%= attendance.date %></td>
       <td><%= attendance.time_in.strftime('%H:%M:%S') %></td>

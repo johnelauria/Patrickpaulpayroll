@@ -1,0 +1,2 @@
+module CutofftotalsalariesHelper
+end
