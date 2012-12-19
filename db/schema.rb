@@ -11,18 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121213011500) do
+ActiveRecord::Schema.define(:version => 20121219033221) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "employee_id"
     t.time     "time_in"
     t.time     "time_out"
     t.date     "date"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.integer  "cutoff_id"
-    t.decimal  "total_salary_earned",  :default => 0.0, :null => false
-    t.decimal  "total_hours_rendered", :default => 0.0, :null => false
+    t.decimal  "total_salary_earned",  :default => 0.0,   :null => false
+    t.decimal  "total_hours_rendered", :default => 0.0,   :null => false
+    t.boolean  "holiday",              :default => false
   end
 
   create_table "cutoffs", :force => true do |t|
@@ -58,19 +59,24 @@ ActiveRecord::Schema.define(:version => 20121213011500) do
     t.time     "starting_time"
     t.time     "dismissal_time"
     t.string   "classification"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.decimal  "working_hours"
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "username"
     t.decimal  "salary_per_hour"
-    t.boolean  "authorized_overtime", :default => false
-    t.decimal  "cutoff_salary",       :default => 0.0,   :null => false
-    t.decimal  "total_salary_earned", :default => 0.0,   :null => false
-    t.decimal  "sss",                 :default => 0.0,   :null => false
-    t.decimal  "philhealth",          :default => 0.0,   :null => false
-    t.decimal  "pagibig",             :default => 0.0,   :null => false
+    t.boolean  "authorized_overtime",  :default => false
+    t.decimal  "cutoff_salary",        :default => 0.0,   :null => false
+    t.decimal  "total_salary_earned",  :default => 0.0,   :null => false
+    t.decimal  "sss",                  :default => 0.0,   :null => false
+    t.decimal  "philhealth",           :default => 0.0,   :null => false
+    t.decimal  "pagibig",              :default => 0.0,   :null => false
+    t.string   "marrital_status"
+    t.integer  "qualified_dependents", :default => 0,     :null => false
+    t.decimal  "withholding_tax",      :default => 0.0,   :null => false
+    t.decimal  "semi_withholding_tax", :default => 0.0,   :null => false
+    t.boolean  "authorizetoggling",    :default => false
   end
 
   add_index "employees", ["name"], :name => "index_employees_on_name"

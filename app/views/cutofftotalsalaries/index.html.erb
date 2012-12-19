@@ -7,6 +7,8 @@
     <th>Salary for cutoff</th>
     <th>Sss</th>
     <th>Philhealth</th>
+    <th>Withholding Tax</th>
+    <th>Semi-Withholding Tax</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,6 +21,8 @@
     <td><%= cutofftotalsalary.salary_for_cutoff %></td>
     <td><%= cutofftotalsalary.sss %></td>
     <td><%= cutofftotalsalary.philhealth %></td>
+    <td><%= cutofftotalsalary.withholding_tax %></td>
+    <td><%= cutofftotalsalary.withholding_tax / 2 %></td>
     <td><%= link_to 'Show', cutofftotalsalary %></td>
     <td><%= link_to 'Edit', edit_cutofftotalsalary_path(cutofftotalsalary) %></td>
     <td><%= link_to 'Destroy', cutofftotalsalary, method: :delete, data: { confirm: 'Are you sure?' } %></td>

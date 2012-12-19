@@ -1,6 +1,18 @@
 class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
+
+  before_filter :signed_in_employee
+
+  def holidaypay
+    if Attendance.last.holiday?
+      Attendance.where('date LIKE ?', Date.today).update_all(holiday: false)
+    else
+      Attendance.where('date LIKE ?', Date.today).update_all(holiday: true)
+    end
+    redirect_to attendances_path
+  end
+
   def index
     @attendances = Attendance.all.reverse
     respond_to do |format|
@@ -60,7 +72,11 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.update_attributes(params[:attendance])
-        Cutofftotalsalary.find_by_employee_name(@attendance.employee.name).update_attributes(salary_for_cutoff: @attendance.employee.cutoff_salary)
+        if Cutofftotalsalary.find_by_employee_name(@attendance.employee.name).nil?
+          Cutofftotalsalary.find_by_employee_name(@attendance.employee.name).create(cutoff_id: Cutoff.last.id, name: @attendance.employee.name, salary_for_cutoff: @attendance.employee.cutoff)
+        else
+          Cutofftotalsalary.find_by_employee_name(@attendance.employee.name).update_attributes(cutoff_id: Cutoff.last.id, salary_for_cutoff: @attendance.employee.cutoff_salary)
+        end
         format.html { redirect_to current_employee, notice: 'Attendance was successfully updated.' }
         format.json { head :no_content }
       else

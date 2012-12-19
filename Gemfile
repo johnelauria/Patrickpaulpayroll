@@ -4,6 +4,7 @@ gem 'rails', '3.2.9'
 gem 'bcrypt-ruby'
 gem 'bootstrap-sass'
 gem 'taps'
+gem 'jquery-popover'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

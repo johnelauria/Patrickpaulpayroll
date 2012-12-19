@@ -20,6 +20,18 @@
     <%= f.text_field :name %>*
   </div>
   <div class="field">
+    <%= f.label :marrital_status %><br />
+    <%= f.select :marrital_status, "<option>Single</option><option>Married</option>".html_safe, prompt: "Please select" %>
+  </div>
+  <div class="field">
+    <%= f.label :qualified_dependents %><br />
+    <%= f.select :qualified_dependents, "<option>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>".html_safe, prompt: "Please select" %>
+  </div>
+  <div class="field">
     <%= f.label :designation %><br />
     <%= f.text_field :designation %>
   </div>

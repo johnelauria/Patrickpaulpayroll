@@ -6,17 +6,12 @@
     <th>Designation</th>
     <% if signed_in? && employer? %>
     <th>Salary per day</th>
-    <th>Salary per hour</th>
-    <% else %>
     <% end %>
-    <th>Starting time</th>
-    <th>Dismissal time</th>
-    <th>Regular working hours</th>
     <th>Classification</th>
     <th>Overtime Authorization</th>
-    <th>SSS contribution</th>
-    <th>Philhealth</th>
-    <th>Pagibig</th>
+    <% if employer? %>
+    <th>Authorize to manage OT and Holidays</th>
+    <% end %>
     <th></th>
     <th></th>
     <th></th>
@@ -24,30 +19,28 @@
 
 <% @employees.each do |employee| %>
   <tr>
-    <td><%= employee.name %></td>
+    <td><%= link_to employee.name, employee %></td>
     <td><%= employee.designation %></td>
     <% if signed_in? && employer? %>
     <td><%= sprintf("P%0.02f", employee.salary_per_day) %></td>
-    <% if !employee.salary_per_hour.nil? %>
-    <td><%= sprintf("P%0.02f", employee.salary_per_hour) %></td>
-    <% else %>
-    <td></td>
     <% end %>
-    <% end %>
-    <td><%= employee.starting_time.strftime("%H:%M") %></td>
-    <td><%= employee.dismissal_time.strftime("%H:%M") %></td>
-    <td><%= employee.working_hours %></td>
     <td><%= employee.classification %></td>
     <td><%= employee.authorized_overtime %></td>
-    <td><%= employee.sss %></td>
-    <td><%= employee.philhealth %></td>
-    <td><%= employee.pagibig %></td>
+    <% if employer? %>
+    <% if employee.authorizetoggling? %>
+    <td><%= link_to "Do not allow", authorizetoggling_employee_url(employee), data: { confirm: "Prevent this admin employee to manage overtime authorizations and holidays?" }, method: :put, class: "btn btn-mini btn-inverse" %></td>
+    <% else %>
+    <% if employee.classification != "Administrator" %>
+    <td>Not admin account</td>
+    <% else %>
+    <td><%= link_to "Allow", authorizetoggling_employee_url(employee), method: :put, data: { confirm: "Allow this admin employee to manage Overtime authorizations and holidays?" }, class: "btn btn-mini btn-inverse" if employee.classification == "Administrator" %></td>
+    <% end %>
+    <% end %>
+    <% end %>
     <% if signed_in? %>
-    <% if employer? || administrator? %>
+    <% if employer? || authorizedadministrator? %>
     <td><%= link_to "Authorize OT", authorizeovertime_employee_url(employee), method: :put, data: { confirm: "Authorize this employee to work overtime / undertime? Continuing this action will allow this employee to time out anytime regardless the employee's original dismissal time." }, class: "btn btn-mini btn-inverse" %></td>
-    <td><%= link_to 'Show', employee %></td>
-    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-    <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
     <% end %>
     <% end %>
   </tr>

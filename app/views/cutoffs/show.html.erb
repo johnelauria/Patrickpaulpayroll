@@ -5,13 +5,15 @@
   <%= @cutoff.cutoff_date %>
 </p>
 
+<a href="#" onClick="javascript:window.print()" class="btn btn-mini btn-info" style="float:right;"><i class="icon-print"></i>Print</a>
+
 <%= link_to 'Edit', edit_cutoff_path(@cutoff) %> |
 <%= link_to 'Back', cutoffs_path %>
 <br /><br />
 
 <ul class="nav nav-tabs" id="Tabs">
 	<li class="active"><a href="#attendance" data-toggle="tab">Attendance</a></li>
-	<li><a href="#salaries" data-toggle="tab">Total salary of employees</a></li>
+	<li><a href="#salaries" data-toggle="tab">Total salary of employee</a></li>
 </ul>
 
 <div class="tab-content">
@@ -32,7 +34,11 @@
   </tr>
 <% @cutoff.attendances.reverse.each do |attendance| %>
 	  <tr>
-	    <td><%= attendance.date %></td>
+        <% if attendance.holiday? %>
+	    <td><font color="green"><%= attendance.date %></p></td>
+        <% else %>
+        <td><%= attendance.date %></td>
+        <% end %>
 	    <td><%= attendance.employee.name %></td>
 	    <% if attendance.time_in.nil? %>
 	    <td></td>
@@ -63,7 +69,7 @@
 <% end %>
 </table>
 </div>
-<div class="tab-pane" id="salaries">
+<div class="tab-pane" id="netincome">
 	<table class="table">
     <tr>
         <th>Employee name</th>
@@ -71,6 +77,7 @@
         <th>SSS Deductible</th>
         <th>Philhealth</th>
         <th>Pagibig</th>
+        <th><a href="#semiwithholdingtax" data-toggle="tab">Monthly-Withholding Tax</a></th>
         <th>Net Income</th>
     </tr>
     <% @cutoff.cutofftotalsalaries.each do |data| %>
@@ -80,9 +87,74 @@
             <td><%= sprintf("P%0.02f", data.sss) %></td>
             <td><%= sprintf("P%0.02f", data.philhealth) %></td>
             <td><%= sprintf("P%0.02f", data.pagibig) %></td>
-            <td><%= sprintf("P%0.02f", data.salary_for_cutoff - (data.sss + data.philhealth + data.pagibig)) %></td>
+			<td><%= sprintf("P%0.02f", data.withholding_tax) %></td>
+            <td><%= sprintf("P%0.02f", data.salary_for_cutoff - (data.sss + data.philhealth + data.pagibig + data.withholding_tax)) %></td>
         </tr>
     <% end %>
 </table>
+<a href="#salaries" data-toggle="tab" class="btn btn-danger" style="float:right;">Remove Deductibles</a>
 </div>
+
+<div class="tab-pane" id="salaries">
+	<table class="table">
+		<tr>
+        	<th>Employee name</th>
+        	<th>Gross Salary</th>
+       	</tr>
+    	<% @cutoff.cutofftotalsalaries.each do |data| %>
+        <tr>
+            <td><%= data.employee_name %></td>
+            <td><%= sprintf("P%0.02f", data.salary_for_cutoff) %></td>
+        </tr>
+    	<% end %>
+    </table>
+    <a href="#netincome" data-toggle="tab" class="btn btn-inverse" style="float:right;">Include Deductibles</a>
+</div>
+
+<div class="tab-pane" id="semiwithholdingtax">
+        <table class="table">
+    <tr>
+        <th>Employee name</th>
+        <th>Gross Salary</th>
+        <th>SSS Deductible</th>
+        <th>Philhealth</th>
+        <th>Pagibig</th>
+        <th><a href="#semiwithholdingtaxonly" data-toggle="tab">Semi-Withholding Tax</a></th>
+        <th>Net Income</th>
+    </tr>
+    <% @cutoff.cutofftotalsalaries.each do |data| %>
+        <tr>
+            <td><%= data.employee_name %></td>
+            <td><%= sprintf("P%0.02f", data.salary_for_cutoff) %></td>
+            <td><%= sprintf("P%0.02f", data.sss) %></td>
+            <td><%= sprintf("P%0.02f", data.philhealth) %></td>
+            <td><%= sprintf("P%0.02f", data.pagibig) %></td>
+            <td><%= sprintf("P%0.02f", (data.withholding_tax / 2)) %></td>
+            <td><%= sprintf("P%0.02f", data.salary_for_cutoff - (data.sss + data.philhealth + data.pagibig + (data.withholding_tax / 2))) %></td>
+        </tr>
+    <% end %>
+</table>
+<a href="#salaries" data-toggle="tab" class="btn btn-danger" style="float:right;">Remove Deductibles</a>
+</div>
+
+<div class="tab-pane" id="semiwithholdingtaxonly">
+        <table class="table">
+    <tr>
+        <th>Employee name</th>
+        <th>Gross Salary</th>
+        <th><a href="#netincome" data-toggle="tab">Semi-Withholding Tax</a></th>
+        <th>Net Income</th>
+    </tr>
+    <% @cutoff.cutofftotalsalaries.each do |data| %>
+        <tr>
+            <td><%= data.employee_name %></td>
+            <td><%= sprintf("P%0.02f", data.salary_for_cutoff) %></td>
+            <td><%= sprintf("P%0.02f", (data.withholding_tax / 2)) %></td>
+            <td><%= sprintf("P%0.02f", data.salary_for_cutoff - (data.withholding_tax / 2)) %></td>
+        </tr>
+    <% end %>
+</table>
+<a href="#salaries" data-toggle="tab" class="btn btn-danger" style="float:right;">Remove Deductibles</a>
+</div>
+
 </div>

@@ -7,13 +7,17 @@ Payroll::Application.routes.draw do
 
   get "home/main"
 
+  get "home/about"
+
   get "sessions/new"
 
   get "sessions/create"
 
   get "sessions/destroy"
 
-  resources :attendances
+  resources :attendances do
+    put :holidaypay, on: :member
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -23,6 +27,7 @@ Payroll::Application.routes.draw do
 
   resources :employees do
     put :authorizeovertime, on: :member
+    put :authorizetoggling, on: :member
   end
 
 

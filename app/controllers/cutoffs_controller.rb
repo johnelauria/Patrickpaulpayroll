@@ -1,6 +1,10 @@
 class CutoffsController < ApplicationController
   # GET /cutoffs
   # GET /cutoffs.json
+
+  before_filter :signed_in_employee
+  before_filter :prevent_employee_access
+
   def index
     @cutoffs = Cutoff.all.reverse
 

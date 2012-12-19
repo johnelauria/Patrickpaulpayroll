@@ -1,3 +1,9 @@
+<% if Attendance.last.holiday? %>
+  <div class="alert alert-info">
+    <button class="close" data-dismiss="alert">x</button>
+    <p><strong>NOTICE</strong>: Your employer / administrator has considered this day as a working holiday. All employees timed in and working today will receive double amount of salary. Thank you for spending your holiday working with us. Happy Holiday!</p>
+  </div>
+<% end %>
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="span6">
@@ -50,26 +56,6 @@
   <b>Salary for current cutoff: </b>
   <%= sprintf("P%0.02f", @employee.cutoff_salary) %>
 </p>
-
-<p>
-  <b>SSS contribution: </b>
-  <%= sprintf("P%0.02f", @employee.sss) %>
-</p>
-
-<p>
-  <b>Philhealth: </b>
-    <%= sprintf("P%0.02f", @employee.philhealth) %>
-</p>
-
-<p>
-  <b>Pagibig: </b>
-  <%= sprintf("P%0.02f", @employee.pagibig) %>
-</p>
-
-<p>
-  <b>Cutoff salary: </b>
-  <%= @employee.cutoff_salary %>
-  </p> 
 
 <% if signed_in? %>
 <% if employer? || administrator? %>

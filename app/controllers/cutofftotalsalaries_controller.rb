@@ -1,6 +1,10 @@
 class CutofftotalsalariesController < ApplicationController
   # GET /cutofftotalsalaries
   # GET /cutofftotalsalaries.json
+
+  before_filter :signed_in_employee
+  before_filter :prevent_access
+
   def index
     @cutofftotalsalaries = Cutofftotalsalary.all
 

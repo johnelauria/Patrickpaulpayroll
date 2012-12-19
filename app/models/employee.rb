@@ -1,13 +1,272 @@
 class Employee < ActiveRecord::Base
-  attr_accessible :classification, :designation, :dismissal_time, :name, :password, :password_confirmation, :regular_working_hours, :salary_per_day, :salary_per_hour, :starting_time, :remember_token, :username
+  attr_accessible :classification, :designation, :dismissal_time, :name, :password, :password_confirmation, :regular_working_hours, :salary_per_day, :salary_per_hour, :starting_time, :remember_token, :username, :qualified_dependents, :marrital_status
 
-  validates :name, :password, :password_confirmation, :salary_per_day, :starting_time, :username, :classification, presence: true
+  validates :name, :password, :password_confirmation, :salary_per_day, :starting_time, :username, :classification, :marrital_status, :qualified_dependents, presence: true
 
   has_many :attendances, dependent: :destroy
   has_secure_password
 
   before_save :save_salary_per_hour
   before_save :create_remember_token
+
+  def semi_withholding_tax
+    self.semi_withholding_tax = self.withholding_tax / 2
+  end
+
+  def withholding_tax
+    if self.qualified_dependents == 0
+      if monthly_salary >= 45883
+        base_tax = 10416.67
+        bracket_exemption = 45883
+        percent_over = 0.32
+      else
+        if monthly_salary >= 25000 && monthly_salary <= 45882.99
+          base_tax = 4166.67
+          bracket_exemption = 25000
+          percent_over = 0.30
+        else
+          if monthly_salary >= 15833 && monthly_salary <= 24999.99
+            base_tax = 1875
+            bracket_exemption = 15833
+            percent_over = 0.25
+          else
+            if monthly_salary >= 10000 && monthly_salary <= 15832.99
+              base_tax = 708.33
+              bracket_exemption = 10000
+              percent_over = 0.20
+            else
+              if monthly_salary >= 6667 && monthly_salary <= 9999.99
+                base_tax = 208.33
+                bracket_exemption = 6667
+                percent_over = 0.15
+              else
+                if monthly_salary >= 5000 && monthly_salary <= 6666.99
+                  base_tax = 41.67
+                  bracket_exemption = 5000
+                  percent_over = 0.10
+                else
+                  if monthly_salary >= 4167 && monthly_salary <= 4999.99
+                    base_tax = 0
+                    bracket_exemption = 4167
+                    percent_over = 0.05
+                  else
+                    if monthly_salary <= 4166.99 && monthly_salary >= 1
+                      base_tax = 0
+                      bracket_exemption = 1
+                      percent_over = 0
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+    
+    else
+    if self.qualified_dependents == 1
+      if monthly_salary >= 47917
+        base_tax = 10416.67
+        bracket_exemption = 47917
+        percent_over = 0.32
+      else
+        if monthly_salary >= 27083 && monthly_salary <= 47916.99
+          base_tax = 4166.67
+          bracket_exemption = 27083
+          percent_over = 0.30
+        else
+          if monthly_salary >= 17917 && monthly_salary <= 27082.99
+            base_tax = 1875
+            bracket_exemption = 17917
+            percent_over = 0.25
+          else
+            if monthly_salary >= 12083 && monthly_salary <= 17916.99
+              base_tax = 708.33
+              bracket_exemption = 12083
+              percent_over = 0.20
+            else
+              if monthly_salary >= 8750 && monthly_salary <= 12082.99
+                base_tax = 208.33
+                bracket_exemption = 8750
+                percent_over = 0.15
+              else
+                if monthly_salary >= 7083 && monthly_salary <= 8749.99
+                  base_tax = 41.67
+                  bracket_exemption = 7083
+                  percent_over = 0.10
+                else
+                  if monthly_salary >= 6250 && monthly_salary <= 7082.99
+                    base_tax = 0
+                    bracket_exemption = 6250
+                    percent_over = 0.05
+                  else
+                    if monthly_salary <= 6249.99 && monthly_salary >= 1
+                      base_tax = 0
+                      bracket_exemption = 1
+                      percent_over = 0
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+
+    else
+    if self.qualified_dependents == 2
+      if monthly_salary >= 50000
+        base_tax = 10416.67
+        bracket_exemption = 50000
+        percent_over = 0.32
+      else
+        if monthly_salary >= 29167 && monthly_salary <= 49999.99
+          base_tax = 4166.67
+          bracket_exemption = 29167
+          percent_over = 0.30
+        else
+          if monthly_salary >= 20000 && monthly_salary <= 29166.99
+            base_tax = 1875
+            bracket_exemption = 20000
+            percent_over = 0.25
+          else
+            if monthly_salary >= 14167 && monthly_salary <= 19999.99
+              base_tax = 708.33
+              bracket_exemption = 14167
+              percent_over = 0.20
+            else
+              if monthly_salary >= 10833 && monthly_salary <= 14166.99
+                base_tax = 208.33
+                bracket_exemption = 10833
+                percent_over = 0.15
+              else
+                if monthly_salary >= 9167 && monthly_salary <= 10832.99
+                  base_tax = 41.67
+                  bracket_exemption = 9166
+                  percent_over = 0.10
+                else
+                  if monthly_salary >= 8333 && monthly_salary <= 9166.99
+                    base_tax = 0
+                    bracket_exemption = 8333
+                    percent_over = 0.05
+                  else
+                    if monthly_salary <= 8332.99 && monthly_salary >= 1
+                      base_tax = 0
+                      bracket_exemption = 1
+                      percent_over = 0
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+    else
+      if self.qualified_dependents == 3
+      if monthly_salary >= 52083
+        base_tax = 10416.67
+        bracket_exemption = 52083
+        percent_over = 0.32
+      else
+        if monthly_salary >= 31250 && monthly_salary <= 52082.99
+          base_tax = 4166.67
+          bracket_exemption = 31250
+          percent_over = 0.30
+        else
+          if monthly_salary >= 22083 && monthly_salary <= 31249.99
+            base_tax = 1875
+            bracket_exemption = 22083
+            percent_over = 0.25
+          else
+            if monthly_salary >= 16250 && monthly_salary <= 22082.99
+              base_tax = 708.33
+              bracket_exemption = 16250
+              percent_over = 0.20
+            else
+              if monthly_salary >= 12917 && monthly_salary <= 16249.99
+                base_tax = 208.33
+                bracket_exemption = 12917
+                percent_over = 0.15
+              else
+                if monthly_salary >= 11250 && monthly_salary <= 12916.99
+                  base_tax = 41.67
+                  bracket_exemption = 11250
+                  percent_over = 0.10
+                else
+                  if monthly_salary >= 10417 && monthly_salary <= 11249.99
+                    base_tax = 0
+                    bracket_exemption = 10417
+                    percent_over = 0.05
+                  else
+                    if monthly_salary <= 10416.99 && monthly_salary >= 1
+                      base_tax = 0
+                      bracket_exemption = 1
+                      percent_over = 0
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+    else
+      if self.qualified_dependents == 4
+      if monthly_salary >= 54167
+        base_tax = 10416.67
+        bracket_exemption = 54167
+        percent_over = 0.32
+      else
+        if monthly_salary >= 33333 && monthly_salary <= 54166.99
+          base_tax = 4166.67
+          bracket_exemption = 33333
+          percent_over = 0.30
+        else
+          if monthly_salary >= 24167 && monthly_salary <= 33332.99
+            base_tax = 1875
+            bracket_exemption = 24167
+            percent_over = 0.25
+          else
+            if monthly_salary >= 18333 && monthly_salary <= 24166.99
+              base_tax = 708.33
+              bracket_exemption = 18333
+              percent_over = 0.20
+            else
+              if monthly_salary >= 15000 && monthly_salary <= 18332.99
+                base_tax = 208.33
+                bracket_exemption = 15000
+                percent_over = 0.15
+              else
+                if monthly_salary >= 13333 && monthly_salary <= 14999.99
+                  base_tax = 41.67
+                  bracket_exemption = 13333
+                  percent_over = 0.10
+                else
+                  if monthly_salary >= 12500 && monthly_salary <= 13332.99
+                    base_tax = 0
+                    bracket_exemption = 12500
+                    percent_over = 0.05
+                  else
+                    if monthly_salary <= 12499.99 && monthly_salary >= 1
+                      base_tax = 0
+                      bracket_exemption = 1
+                      percent_over = 0
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+    end
+  end
+  end
+  end
+    self.withholding_tax = ((self.monthly_salary - bracket_exemption) * percent_over) + base_tax
+  end
 
   def save_salary_per_hour
     self.working_hours = ((self.dismissal_time - self.starting_time) / 1.hour)
