@@ -1,5 +1,7 @@
 <h1>Attendance Sheet</h1>
-<% unless Attendance.nil? %>
+<% if Attendance.nil? %>
+<p></p>
+<% else %>
 <% if employer? || authorizedadministrator? %>
 <% if Attendance.last.holiday? %>
     <%= link_to "Set as Regular Working Day", holidaypay_attendance_url(Attendance.all.each), method: :put, class: "btn btn-mini btn-inverse" %><br />
