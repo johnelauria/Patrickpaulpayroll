@@ -13,4 +13,10 @@ class Attendance < ActiveRecord::Base
 			self.total_salary_earned = (self.total_hours_rendered * self.employee.salary_per_hour)
 		end
 	end
+
+	def ensure_attendance_not_nil
+		if Attendance.nil?
+			Attendance.create(id: 1, employee_id: Employee.first.id, date: Date.today, holiday: false)
+		end
+	end
 end
