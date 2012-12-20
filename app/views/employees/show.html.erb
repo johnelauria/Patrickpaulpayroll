@@ -1,8 +1,10 @@
+<% unless Attendance.nil? %>
 <% if Attendance.last.holiday? %>
   <div class="alert alert-info">
     <button class="close" data-dismiss="alert">x</button>
     <p><strong>NOTICE</strong>: Your employer / administrator has considered this day as a working holiday. All employees timed in and working today will receive double amount of salary. Thank you for spending your holiday working with us. Happy Holiday!</p>
   </div>
+<% end %>
 <% end %>
 <p id="notice"><%= notice %></p>
 <div class="row">

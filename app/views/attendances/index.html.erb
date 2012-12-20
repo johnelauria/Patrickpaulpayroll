@@ -1,9 +1,11 @@
 <h1>Attendance Sheet</h1>
+<% unless Attendance.nil? %>
 <% if employer? || authorizedadministrator? %>
 <% if Attendance.last.holiday? %>
     <%= link_to "Set as Regular Working Day", holidaypay_attendance_url(Attendance.all.each), method: :put, class: "btn btn-mini btn-inverse" %><br />
     <% else %>
 <%= link_to "Set as Working Holiday", holidaypay_attendance_url(Attendance.all.each), method: :put, data: { confirm: "Setting this day as a working holiday will double the total amount of salary earned by all employees working today. This can be undone. Do you wish to continue?" }, class: "btn btn-mini btn-primary" %><br />
+<% end %>
 <% end %>
 <% end %>
 
