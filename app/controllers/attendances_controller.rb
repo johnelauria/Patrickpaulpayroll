@@ -3,6 +3,7 @@ class AttendancesController < ApplicationController
   # GET /attendances.json
 
   before_filter :signed_in_employee
+  before_filter :prevent_employee_access, only: [ :index, :destroy ]
 
   def holidaypay
     if Attendance.last.holiday?
@@ -14,7 +15,7 @@ class AttendancesController < ApplicationController
   end
 
   def index
-    @attendances = Attendance.all.reverse
+    @attendances = Attendance.paginate(page: params[:page], order: "created_at DESC")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @attendances }

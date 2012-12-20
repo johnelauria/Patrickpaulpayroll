@@ -2,7 +2,8 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
 
-  before_filter :prevent_employee_access, only: [:new, :create, :destroy, :index]
+  before_filter :signed_in_employee
+  before_filter :prevent_employee_access, only: [:new, :create, :destroy, :index, :edit, :update]
 
   def authorizetoggling
     @admin = Employee.find(params[:id])

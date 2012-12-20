@@ -29,7 +29,7 @@ module SessionsHelper
 
 	def prevent_employee_access
 		if current_employee.classification == "Employee"
-			flash[:danger] = "You do not have authorization to access that page"
+			flash[:danger] = "You do not have authorization to access that page. Please contact your system administrator or employer if you wish to access that page"
 			redirect_to current_employee
 		end
 	end

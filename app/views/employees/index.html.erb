@@ -39,7 +39,11 @@
     <% end %>
     <% if signed_in? %>
     <% if employer? || authorizedadministrator? %>
+    <% if employee.authorized_overtime? %>
+    <td><%= link_to "Unauthorize OT", authorizeovertime_employee_url(employee), method: :put, class: "btn btn-mini btn-inverse" %></td>
+    <% else %>
     <td><%= link_to "Authorize OT", authorizeovertime_employee_url(employee), method: :put, data: { confirm: "Authorize this employee to work overtime / undertime? Continuing this action will allow this employee to time out anytime regardless the employee's original dismissal time." }, class: "btn btn-mini btn-inverse" %></td>
+    <% end %>
     <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
     <% end %>
     <% end %>

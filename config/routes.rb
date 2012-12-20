@@ -7,6 +7,8 @@ Payroll::Application.routes.draw do
 
   get "home/main"
 
+  get "home/help"
+
   get "home/about"
 
   get "sessions/new"

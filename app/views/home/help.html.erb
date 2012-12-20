@@ -1,0 +1,56 @@
+<h1>Help</h1>
+<br />
+<p>For more details about this system, please see <%= link_to "about the system", home_about_path %> page. This current page will consist of some possible questions that you may possibly ask about the system. </p>
+
+<div class="accordion" id="accordion2">
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Account">What can an employer account do that other accounts cannot?</a>
+		</div>
+		<div class="accordion-body collapse" id="Account">
+			<div class="accordion-inner">
+				<p align="justify">Employer accounts are capable of viewing the total amount of salaries earned by each employees by looking at the attendance page. They may also edit the information about the employee's attendance, for instance, if the employee forgot to timeout the previous day, and employers can also edit employee's profile information. Employers are also allowed to create new user accounts which will accomodate employees for timing in and out, create cutoff dates, set the current date either as a working holiday or regular working day and print the list of attendance for each cutoffs. Overtime authorizations to any other employees can also be authorized by the employer, and whether to allow or prevent an admin account to activate holiday pay and also authorize overtime to other employees.</p>
+			</div>
+		</div>
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Admin">What can an administrator account do?</a>
+		</div>
+		<div class="accordion-body collapse" id="Admin">
+			<div class="accordion-inner">
+				<p align="justify">Administrator accounts are for those employees who are entrusted by their employers to manage the payroll system of the company. As trusted individuals, administrators can also do almost everything what employers can do. The only difference is that administrators cannot view the total amount of salaries earned by employees in the attendance page. They are not authorized to create another employer's account, but they are still allowed to create another administrator or employee accounts. Lastly, if the administrator is authorized by the employer, they may also set the current date as a working holiday and authorize overtime for other employees.</p>
+			</div>
+		</div>
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Employee">What can an employee account do?</a>
+		</div>
+		<div class="accordion-body collapse" id="Employee">
+			<div class="accordion-inner">
+				<p align="justify">Employee accounts are the basic accounts in the system. Employee accounts may only time in and time out for their attendance. They may also see their own record of attendance in their profile which consists the total hours rendered and salaries earned for each day. All employees will be notified about their tardiness.</p>
+			</div>
+		</div>
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#incorrect_info">The information displayed in my profile or attendance is incorrect. How do I correct them?</a>
+		</div>
+		<div class="accordion-body collapse" id="incorrect_info">
+			<div class="accordion-inner">
+				<p align="justify">For using an employee account, you do not have authority to edit information in the attendance or profile information. You will have to ask your employer or system administrator to edit the information you want. If you are allowed by the employer / system administrator, they will use their account and go to the editing page. From there, you can edit the information and you'll have to type your password to confirm the changes in your profile data. As for attendance information editing, no password confirmations are required.</p>
+			</div>
+		</div>
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#timeoutforgot">I forgot to timeout yesterday.</a>
+		</div>
+		<div class="accordion-body collapse" id="timeoutforgot">
+			<div class="accordion-inner">
+				<p align="justify">If you were unable to time out yesterday due to some reasons, you will have to ask your system administrator or employer to correct your checkout time. You may have to explain and convince them for them to update your timeout in the previous day.</p>
+			</div>
+		</div>
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#overtime">I need to work undertime for today. </a>
+		</div>
+		<div class="accordion-body collapse" id="overtime">
+			<div class="accordion-inner">
+				<p align="justify">Since the system only allows you to time out on or after your dismissal time, you will have to ask permission to your system administrator or employer. If have been given permission to work undertime / overtime, you will receive a notification at the top of your profile page. With this granted permission, the system will allow you to timeout any time you wish.</p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -5,9 +5,9 @@
 <br />
 <p align="justify">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; There will be 3 types of users in this system. Each types of users will have different levels of authorities according to their type. <strong>Employer</strong> accounts are capable of viewing the total amount of salaries earned by each employees by looking at the attendance page. They may also edit the information about the employee's attendance, for instance, if the employee forgot to timeout the previous day, and employers can also edit employee's profile information. Employers are also allowed to create new user accounts which will accomodate employees for timing in and out, create cutoff dates, set the current date either as a working holiday or regular working day and print the list of attendance for each cutoffs. <strong>Administrator</strong> accounts are for those employees who are entrusted by their employers to manage the payroll system of the company. As trusted individuals, administrators can also do almost everything what employers can do. The only difference is that administrators cannot view the total amount of salaries earned by employees in the attendance page. They are not authorized to create another employer's account, but they are still allowed to create another administrator or employee accounts. Lastly, if the administrator is authorized by the employer, they may also set the current date as a working holiday and authorize overtime for other employees. <strong>Employee</strong> accounts are the basic accounts in the system. Employee accounts may only time in and time out for their attendance. They may also see their own record of attendance in their profile which consists the total hours rendered and salaries earned for each day. All employees will be notified about their tardiness. </p>
 <br />
-<p align="justify">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Once this system has been installed in one server computer, the system can already be accessed in all the computers within the Local Area Network(LAN). In order to have access to this system in the network, the server computer server must be running the <a href="#railsserver" data-toggle="modal">rails server</a> in the server computer. If the server is already running, the system can be accessed in all other computers within the network by entering (IP address:3000) example would be (http://192.168.1.1:3000) in the browser. An alternative option would be to type the hostname of the computer server then the port number 3000 (example: http://server-computer:3000). This system has been tested in different browsers and is known to be working in Internet Explorer 8 or higher version, Mozilla Firefox, Google Chrome, Opera and Safari</p>
+<p align="justify">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Once this system has been installed in one server computer, the system can already be accessed in all the computers within the Local Area Network(LAN). In order to have access to this system in the network, the server computer server must be running the <a href="#railsserver" data-toggle="modal">rails server</a> in the server computer. If the server is already running, the system can be accessed in all other computers within the network by entering (IP address:3000) example would be (http://192.168.1.1:3000) in the browser. An alternative option would be to type the <a href="#hostname" data-toggle="modal">hostname</a> of the computer server then the port number 3000 (example: http://server-computer:3000). This system has been tested in different browsers and is known to be working in Internet Explorer 8 or higher version, Mozilla Firefox, Google Chrome, Opera and Safari</p>
 <br />
-<p align="justify">The formula for calculating taxes in this website is following the latest tax table computation of January 2009 which is still being followed up to the present. For reference request, the source can be seen by <a href="http://philippinestaxcomputation.blogspot.com/" target="_blank">clicking this link</a> which will open in a new tab.</p>
+<p align="justify">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The formula for calculating taxes in this system is following the latest tax table computation of January 2009 which is still being followed up to the present. For reference request, the source can be seen by <a href="http://philippinestaxcomputation.blogspot.com/" target="_blank">clicking this link</a> which will open a different website in a new tab.</p>
 
 <div id="railsserver" class="modal hide fade">
 	<div class="modal-header">
@@ -15,8 +15,21 @@
 		<h1>Rails server</h1>
 	</div>
 	<div class="modal-body">
-		<p>The rails server shortcut should already be placed in the desktop by your programmer. If not, you may require assistance from your programmer or an IT who knows about command prompt.</p><br />
-		<p>Assuming that you know about command prompt, change your current directory to the "Payroll" folder (ex. "cd c:\yourpath\payroll"). Once you've gone there, type in "rails server" in the command line to launch WEBrick rails server. Wait a couple of seconds and the system will be running on your http://localhost:3000 in your local browser. It is advisable that you create a batch file in your desktop for running your server</p>
+		<p>The rails server shortcut should already be placed in the desktop by your system developer. If not, you may require assistance from your developer or an IT who knows about command prompt.</p><br />
+		<p>Assuming that you know about command prompt, change your current directory to the "Payroll" folder (ex. "cd c:\yourpath\payroll"). Once you've gone there, type in "rails server" in the command line to launch WEBrick rails server. Wait a couple of seconds and the system will be running by going to http://localhost:3000 in your local browser. It is advisable that you create a batch file in your desktop for running your server</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal">Close</button>
+	</div>
+</div>
+
+<div id="hostname" class="modal hide fade">
+	<div class="modal-header">
+		<button class="close" data-dismiss="modal">x</button>
+		<h1>Hostname</h1>
+	</div>
+	<div class="modal-body">
+		<p>In order to get the hostname of your computer, go to command prompt (open run then type "cmd" and press enter) then type in "hostname" in the command line. The hostname will be displayed there.</p>
 	</div>
 	<div class="modal-footer">
 		<button class="btn" data-dismiss="modal">Close</button>
