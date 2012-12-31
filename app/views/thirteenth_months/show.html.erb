@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Year:</b>
+  <%= @thirteenth_month.year %>
+</p>
+
+<%= link_to 'Back', thirteenth_months_path %>
+
+<table class="table">
+  <tr>
+    <th>Employee name</th>
+    <th>Amount</th>
+  </tr>
+<% @thirteenth_month.thirteenth_month_pays.each do |pay| %>
+      <tr>
+        <td><%= pay.employee_name %></td>
+        <td><%= sprintf("P%0.02f", pay.amount) %></td>
+      </tr>
+<% end %>
+</table>

@@ -33,7 +33,6 @@ class EmployeesController < ApplicationController
     @attendance = Employee.new.attendances.build(params[:attendance])
     @taxable_income = @employee.cutoff_salary - (@employee.sss + @employee.philhealth + @employee.pagibig)
     @withholding_tax = ((@taxable_income - 15833) * 0.25) + 1875
-    @marrital_status = ["Single", "Married"]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -65,6 +64,7 @@ class EmployeesController < ApplicationController
     respond_to do |format|
       if @employee.save
         Cutofftotalsalary.create(cutoff_id: Cutoff.last.id, employee_name: @employee.name, sss: @employee.sss, philhealth: @employee.philhealth, pagibig: @employee.pagibig, withholding_tax: @employee.withholding_tax)
+        ThirteenthMonthPay.create(thirteenth_month_id: Date.today.strftime("%Y").to_i, employee_name: @employee.name)
         format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
         format.json { render json: @employee, status: :created, location: @employee }
       else

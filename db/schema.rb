@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219033221) do
+ActiveRecord::Schema.define(:version => 20121231100919) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "employee_id"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20121219033221) do
     t.decimal  "total_salary_earned",  :default => 0.0,   :null => false
     t.decimal  "total_hours_rendered", :default => 0.0,   :null => false
     t.boolean  "holiday",              :default => false
+    t.integer  "attendance_year"
+    t.decimal  "regular_pay",          :default => 0.0,   :null => false
   end
 
   create_table "cutoffs", :force => true do |t|
@@ -82,5 +84,20 @@ ActiveRecord::Schema.define(:version => 20121219033221) do
   add_index "employees", ["name"], :name => "index_employees_on_name"
   add_index "employees", ["remember_token"], :name => "index_employees_on_remember_token"
   add_index "employees", ["username"], :name => "index_employees_on_username"
+
+  create_table "thirteenth_month_pays", :force => true do |t|
+    t.integer  "year"
+    t.string   "employee_name"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.decimal  "amount",              :default => 0.0, :null => false
+    t.integer  "thirteenth_month_id"
+  end
+
+  create_table "thirteenth_months", :force => true do |t|
+    t.integer  "year"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

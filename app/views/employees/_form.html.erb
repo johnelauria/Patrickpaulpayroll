@@ -20,7 +20,7 @@
     <%= f.text_field :name %>*
   </div>
   <div class="field">
-    <%= f.label :marrital_status %><br />
+    <%= f.label :marital_status %><br />
     <%= f.select :marrital_status, "<option>Single</option><option>Married</option>".html_safe, prompt: "Please select" %>
   </div>
   <div class="field">
@@ -38,6 +38,7 @@
   <div class="field">
     <%= f.label :username %><br />
     <%=f.text_field :username %> <small>*Will be used for logging in*</small>
+  </div>
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>*

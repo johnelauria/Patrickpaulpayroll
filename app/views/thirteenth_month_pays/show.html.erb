@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Year:</b>
+  <%= @thirteenth_month_pay.year %>
+</p>
+
+<p>
+  <b>Employee name:</b>
+  <%= @thirteenth_month_pay.employee_name %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @thirteenth_month_pay.amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_thirteenth_month_pay_path(@thirteenth_month_pay) %> |
+<%= link_to 'Back', thirteenth_month_pays_path %>

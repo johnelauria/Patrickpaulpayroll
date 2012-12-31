@@ -56,6 +56,9 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
+        if Cutoff.first.nil?
+          Cutoff.create(cutoff_date: Date.today)
+        end
         flash[:success] = "You have successfully timed in"
         format.html { redirect_to current_employee }
         format.json { render json: @attendance, status: :created, location: @attendance }
@@ -78,6 +81,7 @@ class AttendancesController < ApplicationController
         else
           Cutofftotalsalary.find_by_employee_name(@attendance.employee.name).update_attributes(cutoff_id: Cutoff.last.id, salary_for_cutoff: @attendance.employee.cutoff_salary)
         end
+        ThirteenthMonthPay.find_by_employee_name(@attendance.employee.name).update_attributes(year: Date.today.strftime("%Y").to_i, amount: @attendance.employee.thirteenth_month_pay)
         format.html { redirect_to current_employee, notice: 'Attendance was successfully updated.' }
         format.json { head :no_content }
       else

@@ -14,6 +14,9 @@
 <ul class="nav nav-tabs" id="Tabs">
 	<li class="active"><a href="#attendance" data-toggle="tab">Attendance</a></li>
 	<li><a href="#salaries" data-toggle="tab">Total salary of employee</a></li>
+    <% if Date.today.strftime("%m").to_i >= 11 %>
+    <li><a href="#thirteenth_month" data-toggle="tab">13th month pay</a></li>
+    <% end %>
 </ul>
 
 <div class="tab-content">
@@ -35,7 +38,7 @@
 <% @cutoff.attendances.reverse.each do |attendance| %>
 	  <tr>
         <% if attendance.holiday? %>
-	    <td><font color="green"><%= attendance.date %></p></td>
+	    <td><span style="color: green; "><%= attendance.date %></span></td>
         <% else %>
         <td><%= attendance.date %></td>
         <% end %>
@@ -69,7 +72,7 @@
 <% end %>
 </table>
 </div>
-<div class="tab-pane" id="netincome">
+<div class="tab-pane" id="net_income">
 	<table class="table">
     <tr>
         <th>Employee name</th>
@@ -108,7 +111,7 @@
         </tr>
     	<% end %>
     </table>
-    <a href="#netincome" data-toggle="tab" class="btn btn-inverse" style="float:right;">Include Deductibles</a>
+    <a href="#net_income" data-toggle="tab" class="btn btn-inverse" style="float:right;">Include Deductibles</a>
 </div>
 
 <div class="tab-pane" id="semiwithholdingtax">
@@ -142,7 +145,7 @@
     <tr>
         <th>Employee name</th>
         <th>Gross Salary</th>
-        <th><a href="#netincome" data-toggle="tab">Semi-Withholding Tax</a></th>
+        <th><a href="#net_income" data-toggle="tab">Semi-Withholding Tax</a></th>
         <th>Net Income</th>
     </tr>
     <% @cutoff.cutofftotalsalaries.each do |data| %>
@@ -157,4 +160,18 @@
 <a href="#salaries" data-toggle="tab" class="btn btn-inverse" style="float:right;">Remove Deductibles</a>
 </div>
 
+<div class="tab-pane" id="thirteenth_month">
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+    </tr>
+    <% @cutoff.attendances.each do |attendance| %>
+        <tr>
+        <td><%= attendance.employee.name %></td>
+        <td><%= attendance.employee.thirteenth_month_pay %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
 </div>

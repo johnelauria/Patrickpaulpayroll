@@ -28,7 +28,11 @@
 
 <% @attendances.each do |attendance| %>
   <tr>
-    <td><%= attendance.date %></td>
+    <% if attendance.holiday? %>
+        <td style="color:green;"><%= attendance.date %></td>
+    <% else %>
+        <td><%= attendance.date %></td>
+    <% end %>
     <td><%= attendance.employee.name %></td>
     <% if attendance.time_in.nil? %>
     <td></td>

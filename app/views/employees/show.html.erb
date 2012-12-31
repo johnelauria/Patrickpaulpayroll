@@ -100,12 +100,12 @@
 <% else %>
 <% if current_employee.attendances.last.time_out.nil? %>
 <% if current_employee.starting_time < current_employee.attendances.last.time_in %>
-<font color="red">You have successfully timed in. You are <%= sprintf("%0.02f", ((current_employee.attendances.last.time_in - current_employee.starting_time) / 1.hour)) %> hours late for today! Please be informed that your tardiness will be a deduction to your salary. </font>
+<div style="color:red;">You have successfully timed in. You are <%= sprintf("%0.02f", ((current_employee.attendances.last.time_in - current_employee.starting_time) / 1.hour)) %> hours late for today! Please be informed that your tardiness will be a deduction to your salary. </div>
 <% else %>
-<font color="green">You are currently timed in!</font>
+<div style="color:green;">You are currently timed in!</div>
 <% end %>
 <% else %>
-<font color="green">You have successfully timed out! Come back again another day for your next shift...</font>
+<div style="color:green;">You have successfully timed out! Come back again another day for your next shift...</div>
 <% end %>
 <% end %>
 <% end %>
@@ -144,6 +144,5 @@
       <% end %>
       <td><%= link_to "Time out", edit_attendance_path(attendance), class: "btn btn-mini btn-inverse" unless !attendance.time_out.nil? %></td>
     </tr>
-
 <% end %>
 </table>

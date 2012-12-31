@@ -643,6 +643,22 @@ end
     end
   end
 
+  def months_rendered
+    ((self.attendances.last.created_at - (self.attendances.first.created_at)) / 1.day).to_i
+  end
+
+  def months_rendered_in_calendar_year
+    months_rendered >= 12 ? 12 : months_rendered
+  end
+
+  def thirteenth_month_pay_factor
+    ((self.attendances.find_all_by_attendance_year(2012).map(&:regular_pay).sum) / 12) / 12
+  end
+
+  def thirteenth_month_pay
+    thirteenth_month_pay_factor * months_rendered_in_calendar_year
+  end
+
   private
   	def create_remember_token
   		self.remember_token = SecureRandom.urlsafe_base64

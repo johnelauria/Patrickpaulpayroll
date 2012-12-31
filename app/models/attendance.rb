@@ -4,6 +4,8 @@ class Attendance < ActiveRecord::Base
   belongs_to :cutoff
   belongs_to :employee
   before_update :total_hours
+  before_update :create_regular_pay
+  before_create :create_attendance_year
 
 	def total_hours
 		self.total_hours_rendered = ((self.time_out - self.time_in) / 1.hour)
@@ -15,8 +17,16 @@ class Attendance < ActiveRecord::Base
 	end
 
 	def ensure_attendance_not_nil
-		if Attendance.nil?
+		if Attendance.first.nil?
 			Attendance.create(id: 1, employee_id: Employee.first.id, date: Date.today, holiday: false)
 		end
-	end
+  end
+
+  def create_attendance_year
+    self.attendance_year = Date.today.strftime("%Y").to_i
+  end
+
+  def create_regular_pay
+    self.holiday? ? self.regular_pay = total_salary_earned / 2 : self.regular_pay = total_salary_earned
+  end
 end

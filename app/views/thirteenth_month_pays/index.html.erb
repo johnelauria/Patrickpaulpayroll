@@ -1,0 +1,27 @@
+<h1>Listing thirteenth_month_pays</h1>
+
+<table class="table">
+  <tr>
+    <th>Year</th>
+    <th>Employee name</th>
+    <th>Amount</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @thirteenth_month_pays.each do |thirteenth_month_pay| %>
+  <tr>
+    <td><%= thirteenth_month_pay.year %></td>
+    <td><%= thirteenth_month_pay.employee_name %></td>
+    <td><%= sprintf("P%0.02f", thirteenth_month_pay.amount) %></td>
+    <td><%= link_to 'Show', thirteenth_month_pay %></td>
+    <td><%= link_to 'Edit', edit_thirteenth_month_pay_path(thirteenth_month_pay) %></td>
+    <td><%= link_to 'Destroy', thirteenth_month_pay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Thirteenth month pay', new_thirteenth_month_pay_path %>

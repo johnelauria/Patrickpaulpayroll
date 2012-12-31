@@ -1,4 +1,10 @@
 Payroll::Application.routes.draw do
+  resources :thirteenth_months
+
+
+  resources :thirteenth_month_pays
+
+
   resources :cutofftotalsalaries
 
 
@@ -26,6 +32,8 @@ Payroll::Application.routes.draw do
   match "/signin", to: "sessions#new"
 
   match "/signout", to: "sessions#destroy"
+
+  match "/about", to: "home#about"
 
   resources :employees do
     put :authorizeovertime, on: :member

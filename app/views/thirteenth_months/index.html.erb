@@ -1,0 +1,15 @@
+<h1>Listing thirteenth_months</h1>
+
+<table class="table">
+  <tr>
+    <th>Year</th>
+    <th>Number of employees</th>
+  </tr>
+
+<% @thirteenth_months.each do |thirteenth_month| %>
+  <tr>
+    <td><%= link_to thirteenth_month.year, thirteenth_month %></td>
+    <td><%= thirteenth_month.thirteenth_month_pays.count %></td>
+  </tr>
+<% end %>
+</table>
