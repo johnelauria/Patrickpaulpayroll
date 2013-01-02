@@ -1,15 +1,17 @@
-<h1>Listing thirteenth_months</h1>
+<h1>13th month pays</h1>
 
 <table class="table">
   <tr>
     <th>Year</th>
     <th>Number of employees</th>
+    <th></th>
   </tr>
 
 <% @thirteenth_months.each do |thirteenth_month| %>
   <tr>
     <td><%= link_to thirteenth_month.year, thirteenth_month %></td>
     <td><%= thirteenth_month.thirteenth_month_pays.count %></td>
+    <td><%= link_to "Delete", thirteenth_month, method: :destroy, data: { confirm: "All 13th month pay records within this year will also be removed. Are you sure you want to delete this record?" }, class: "btn btn-mini btn-danger" %></td>
   </tr>
 <% end %>
 </table>

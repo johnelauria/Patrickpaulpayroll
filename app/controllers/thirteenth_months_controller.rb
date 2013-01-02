@@ -3,7 +3,7 @@ class ThirteenthMonthsController < ApplicationController
   # GET /thirteenth_months.json
 
   def index
-    @thirteenth_months = ThirteenthMonth.all
+    @thirteenth_months = ThirteenthMonth.all.reverse
     if ThirteenthMonth.first.nil?
       ThirteenthMonth.create(year: Date.today.strftime("%Y").to_i)
     end

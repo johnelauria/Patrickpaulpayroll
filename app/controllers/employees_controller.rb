@@ -33,6 +33,12 @@ class EmployeesController < ApplicationController
     @attendance = Employee.new.attendances.build(params[:attendance])
     @taxable_income = @employee.cutoff_salary - (@employee.sss + @employee.philhealth + @employee.pagibig)
     @withholding_tax = ((@taxable_income - 15833) * 0.25) + 1875
+    if Attendance.find_by_date(Date.yesterday).holiday?
+      if @employee.attendances.find_by_date(Date.yesterday).nil?
+        flash[:info] = "NOTICE: Your have received your regular salary yesterday without working due to national holiday"
+        Attendance.create(date: Date.yesterday, employee_id: @employee.id, holiday: true, total_salary_earned: @employee.salary_per_day, time_in: @employee.starting_time, time_out: @employee.dismissal_time )
+      end
+    end
 
     respond_to do |format|
       format.html # show.html.erb

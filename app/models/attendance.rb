@@ -6,6 +6,7 @@ class Attendance < ActiveRecord::Base
   before_update :total_hours
   before_update :create_regular_pay
   before_create :create_attendance_year
+  before_create :holiday_attendance
 
 	def total_hours
 		self.total_hours_rendered = ((self.time_out - self.time_in) / 1.hour)
@@ -14,7 +15,13 @@ class Attendance < ActiveRecord::Base
 		else
 			self.total_salary_earned = (self.total_hours_rendered * self.employee.salary_per_hour)
 		end
-	end
+  end
+
+  def holiday_attendance
+    if Attendance.last.holiday?
+      self.holiday = true
+    end
+  end
 
 	def ensure_attendance_not_nil
 		if Attendance.first.nil?

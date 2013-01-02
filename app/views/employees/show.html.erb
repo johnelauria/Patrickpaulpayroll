@@ -129,7 +129,7 @@
 <% @employee.attendances.reverse.each do |attendance| %>
     <tr>
       <td><%= attendance.date %></td>
-      <td><%= attendance.time_in.strftime('%H:%M:%S') %></td>
+      <td><%= attendance.time_in.strftime('%H:%M:%S') unless attendance.time_in.nil? %></td>
       <% if !attendance.time_out.nil? %>
       <td><%= attendance.time_out.strftime('%H:%M:%S') %></td>
       <% else %>
@@ -142,7 +142,7 @@
       <td><%= sprintf("P%0.02f", attendance.total_salary_earned) unless attendance.total_salary_earned.nil? %></td>
       <% else %>
       <% end %>
-      <td><%= link_to "Time out", edit_attendance_path(attendance), class: "btn btn-mini btn-inverse" unless !attendance.time_out.nil? %></td>
+      <td><%= link_to "Time out", edit_attendance_path(attendance), class: "btn btn-mini btn-inverse" if attendance.time_out.nil? %></td>
     </tr>
 <% end %>
 </table>
