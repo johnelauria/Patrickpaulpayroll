@@ -90,6 +90,9 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rhoconnect-rb (1.0.0)
+      json (>= 1.4.6)
+      rest-client (~> 1.6.1)
     sass (3.2.3)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -133,6 +136,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 3.2.9)
+  rhoconnect-rb
   sass-rails (~> 3.2.3)
   sqlite3
   taps

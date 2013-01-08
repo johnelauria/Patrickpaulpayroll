@@ -1,4 +1,5 @@
 class Employee < ActiveRecord::Base
+  include Rhoconnectrb::Resource
   attr_accessible :classification, :designation, :dismissal_time, :name, :password, :password_confirmation, :regular_working_hours, :salary_per_day, :salary_per_hour, :starting_time, :remember_token, :username, :qualified_dependents, :marrital_status
 
   validates :name, :password, :password_confirmation, :salary_per_day, :starting_time, :username, :classification, :marrital_status, :qualified_dependents, presence: true
@@ -8,6 +9,10 @@ class Employee < ActiveRecord::Base
 
   before_save :save_salary_per_hour
   before_save :create_remember_token
+
+  def partition
+    :app
+  end
 
   def semi_withholding_tax
     self.semi_withholding_tax = self.withholding_tax / 2

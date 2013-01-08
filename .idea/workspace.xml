@@ -2,21 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e243d5e-611c-4950-9e1e-2df6658ddd7c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MOVED" beforePath="C:\railsapp\payroll\app\models\cutoffsalary.rb" afterPath="$PROJECT_DIR$/config/initializers/rhoconnect.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/JohnMaenard.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/JohnMaenard.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/employees_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/employees_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/thirteenth_months_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/thirteenth_months_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/attendance.rb" afterPath="$PROJECT_DIR$/app/models/attendance.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/cutoff.rb" afterPath="$PROJECT_DIR$/app/models/cutoff.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/cutofftotalsalary.rb" afterPath="$PROJECT_DIR$/app/models/cutofftotalsalary.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/employee.rb" afterPath="$PROJECT_DIR$/app/models/employee.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/thirteenth_month.rb" afterPath="$PROJECT_DIR$/app/models/thirteenth_month.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/employees/show.html.erb" afterPath="$PROJECT_DIR$/app/views/employees/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/about.html.erb" afterPath="$PROJECT_DIR$/app/views/home/about.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/help.html.erb" afterPath="$PROJECT_DIR$/app/views/home/help.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/thirteenth_months/index.html.erb" afterPath="$PROJECT_DIR$/app/views/thirteenth_months/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/thirteenth_month_pay.rb" afterPath="$PROJECT_DIR$/app/models/thirteenth_month_pay.rb" />
     </list>
     <ignored path="payroll.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,44 +37,7 @@
     <groupTables value="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="database.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/database.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="70" selection-start="1528" selection-end="1528" vertical-scroll-proportion="-25.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="about.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/about.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="4782" selection-end="5194" vertical-scroll-proportion="25.76923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="help.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/home/help.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="36" selection-start="7192" selection-end="7192" vertical-scroll-proportion="0.81146026">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -91,22 +53,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20121231044316_add_default_value_to_amount.rb" />
-        <option value="$PROJECT_DIR$/db/schema.rb" />
-        <option value="$PROJECT_DIR$/app/models/thirteenth_month_pay.rb" />
-        <option value="$PROJECT_DIR$/app/views/thirteenth_months/show.html.erb" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/thirteenth_months_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/attendance.rb" />
-        <option value="$PROJECT_DIR$/app/models/cutoff.rb" />
         <option value="$PROJECT_DIR$/app/views/employees/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/employees_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/thirteenth_months/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/thirteenth_month.rb" />
         <option value="$PROJECT_DIR$/app/views/home/about.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/help.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/controllers/employees_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/attendance.rb" />
+        <option value="$PROJECT_DIR$/app/models/cutoff.rb" />
+        <option value="$PROJECT_DIR$/app/models/cutofftotalsalary.rb" />
+        <option value="$PROJECT_DIR$/app/models/employee.rb" />
+        <option value="$PROJECT_DIR$/app/models/thirteenth_month.rb" />
+        <option value="$PROJECT_DIR$/app/models/thirteenth_month_pay.rb" />
       </list>
     </option>
   </component>
@@ -149,8 +111,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -179,21 +139,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="path" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -210,22 +156,8 @@
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="initializers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -244,116 +176,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="employees" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cutofftotalsalaries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cutoffs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="attendances" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payroll" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -391,6 +213,17 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="RailsProjectView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="payroll" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -398,7 +231,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="editor.preferences.smartKeys" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/railsapp/emeraldgreencorp" />
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
     <property name="dynamic.classpath" value="false" />
@@ -660,14 +493,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1040" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1040" height="744" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.49590164" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991803" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27971312" sideWeight="0.6836903" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29098362" sideWeight="0.6836903" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991803" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.49692622" order="7" side_tool="true" content_ui="tabs" />
@@ -677,6 +510,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -735,28 +569,44 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/thirteenth_months_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
+    <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="96" selection-start="132" selection-end="132" vertical-scroll-proportion="0.045333333">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/attendances/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="47" selection-start="831" selection-end="831" vertical-scroll-proportion="0.9255014" />
+        <state line="39" column="70" selection-start="1528" selection-end="1528" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/employees/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/home/about.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="23" selection-start="3899" selection-end="3899" vertical-scroll-proportion="0.7116451">
-          <folding />
-        </state>
+        <state line="9" column="0" selection-start="4782" selection-end="5194" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/help.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="40" selection-start="6258" selection-end="6258" vertical-scroll-proportion="0.4029575" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="19" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="40" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/employees_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="7" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.61333334" />
       </provider>
     </entry>
     <entry file="uml://RailsDependency/#payroll">
@@ -775,23 +625,23 @@
           <notes />
           <edges>
             <edge source="Cutoff" target="Attendance">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
+              <point x="121.5" y="24.25" />
+              <point x="-110.5" y="-62.75" />
             </edge>
             <edge source="Employee" target="Attendance">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
+              <point x="111.0" y="-0.0" />
+              <point x="-110.5" y="62.75" />
             </edge>
             <edge source="ThirteenthMonth" target="ThirteenthMonthPay">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
+              <point x="146.0" y="-0.0" />
+              <point x="-119.5" y="-0.0" />
             </edge>
             <edge source="Cutoff" target="Cutofftotalsalary">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
+              <point x="121.5" y="-24.25" />
+              <point x="-96.0" y="-0.0" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.989428263214671" x="-48.744330571303976" y="409.45431748800695" />
+          <settings layout="Hierarchic Group" zoom="0.989428263214671" x="271.0" y="388.0" />
           <SelectedNodes>
             <node>ThirteenthMonth</node>
           </SelectedNodes>
@@ -799,82 +649,43 @@
             <Category>Migration fields</Category>
             <Category>Association fields</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/employees_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/attendance.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="167" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="8" selection-start="439" selection-end="439" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/main.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/models/cutoff.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="9" column="8" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/thirteenth_months/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/models/cutofftotalsalary.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="145" selection-start="466" selection-end="466" vertical-scroll-proportion="-8.5">
-          <folding />
-        </state>
+        <state line="5" column="8" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/thirteenth_months_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/employee.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/thirteenth_month_pay.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="46" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="13" column="8" selection-start="659" selection-end="659" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/thirteenth_month.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="39" selection-start="127" selection-end="127" vertical-scroll-proportion="0.14655173">
-          <folding />
-        </state>
+        <state line="7" column="8" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
+    <entry file="file://$PROJECT_DIR$/app/models/thirteenth_month_pay.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="8" selection-start="358" selection-end="358" vertical-scroll-proportion="0.7010309" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializers/rhoconnect.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="70" selection-start="1528" selection-end="1528" vertical-scroll-proportion="-25.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/about.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="4782" selection-end="5194" vertical-scroll-proportion="25.76923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/help.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="36" selection-start="7192" selection-end="7192" vertical-scroll-proportion="0.81146026">
           <folding />
         </state>
       </provider>
