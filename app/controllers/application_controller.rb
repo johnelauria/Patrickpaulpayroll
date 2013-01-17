@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  require 'rhoconnect-rb'
   protect_from_forgery
   
   include SessionsHelper

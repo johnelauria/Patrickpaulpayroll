@@ -1,5 +1,4 @@
 class Attendance < ActiveRecord::Base
-  include Rhoconnectrb::Resource
   attr_accessible :cutoff_id, :date, :employee_id, :time_in, :time_out, :total_hours_rendered, :total_salary_earned, :holiday
 
   belongs_to :cutoff
@@ -8,10 +7,6 @@ class Attendance < ActiveRecord::Base
   before_update :create_regular_pay
   before_create :create_attendance_year
   before_create :holiday_attendance
-
-  def partition
-    :app
-  end
 
 	def total_hours
 		self.total_hours_rendered = ((self.time_out - self.time_in) / 1.hour)

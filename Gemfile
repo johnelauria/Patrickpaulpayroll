@@ -7,7 +7,6 @@ gem 'taps'
 gem 'jquery-popover'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-gem 'rhoconnect-rb'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
